@@ -8,8 +8,9 @@ class Screenplay < ApplicationRecord
     def average_rating
         if reviews.count > 0
             ratings = reviews.map { |review| review.rating }
-            if ratings.first > 0
-                average = ratings.reduce(:+) / ratings.count
+            sum = ratings.reduce(:+)
+            if sum > 0
+                average = sum / ratings.count
                 average.round(1)
             else
                 return 0

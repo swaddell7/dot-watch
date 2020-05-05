@@ -12,7 +12,12 @@
 
 <%= form_for review do |f| %>
     <%= f.label :screenplay_id, "Screenplay:" %>
-    <%= f.collection_select :screenplay_id, Screenplay.all, :id, :title %>
+    <%= f.text_field :screenplay_id, list: "screenplays_autocomplete", onfocus: "this.value=''", value: "#{review.screenplay.title}" %>
+      <datalist id="screenplays_autocomplete">
+        <% Screenplay.all.each do |screenplay| %>
+          <option value="<%= screenplay.title %>">
+        <% end %>
+      </datalist>
     <br>
     <br>
     <%= f.label :user_id, "User:" %>
@@ -20,7 +25,7 @@
     <br>
     <br>
     <%= f.label :title, "Review title:" %>
-    <%= f.text_field :title %>
+    <%= f.text_area :title %>
     <br>
     <br>
     <%= f.label :description, "Review description:" %>

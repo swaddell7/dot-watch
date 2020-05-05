@@ -1,0 +1,19 @@
+<h3><%= link_to "Back to all users", users_path %></h3>
+
+<div class="user_profile_card">
+    <h1><%= @user.name %>'s Profile</h1>
+    <h2><%= "@#{@user.username}" %></h2>
+    <h3><%= @user.age %> years old</h3>
+    <p><%= @user.bio %></p>
+</div>
+
+<h1>Reviews:</h1>
+
+<% @user.reviews.each do |review| %>
+    <div class="user_profile_review_card">
+        <h4><%= link_to review.title, review_path(review) %></h4>
+        <p style="font-size: 12px;"><%= review.screenplay.title %></p>
+        <p><%= review.description %></p>
+        <p>Likes: <%= review.likes.count %></p>
+    </div>
+<% end %>

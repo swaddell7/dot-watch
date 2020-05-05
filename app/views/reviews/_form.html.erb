@@ -1,0 +1,35 @@
+<% if review.errors.any? %>
+    <div>
+        <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+        <ul>
+            <% review.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_for review do |f| %>
+    <%= f.label :screenplay_id, "Screenplay:" %>
+    <%= f.collection_select :screenplay_id, Screenplay.all, :id, :title %>
+    <br>
+    <br>
+    <%= f.label :user_id, "User:" %>
+    <%= f.collection_select :user_id, User.all, :id, :name %>
+    <br>
+    <br>
+    <%= f.label :title, "Review title:" %>
+    <%= f.text_field :title %>
+    <br>
+    <br>
+    <%= f.label :description, "Review description:" %>
+    <%= f.text_area :description %>
+    <br>
+    <br>
+    <%= f.label :rating, "Review rating:" %>
+    <%= f.select :rating, [1, 2, 3, 4, 5] %>
+    <br>
+    <br>
+    <%= f.submit %>
+<% end %>

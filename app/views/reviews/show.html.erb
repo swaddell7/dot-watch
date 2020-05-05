@@ -1,0 +1,13 @@
+<h1><%= @review.title %></h1>
+
+<text>Review by: <%= @review.user.name %></text>
+<br>
+<text>Screenplay: <%= @review.screenplay.title %></text>
+<br>
+<p><%= @review.description %>
+<br>
+<br>
+<text>Rating: <%= @review.rating %> Stars</text>
+<br>
+<br>
+<%= link_to "Back to All Reviews", reviews_path %>

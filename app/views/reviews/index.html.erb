@@ -1,0 +1,8 @@
+<h1>Reviews</h1>
+
+<% @reviews.each do |review| %>
+  <h3><%= link_to review.title, review_path(review) %><br></h3>
+  <%= review.description%><br>
+  <text>Rating: <%= review.rating %> / 5.0</text>
+  <br>
+<% end %>

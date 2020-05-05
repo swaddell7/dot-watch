@@ -11,4 +11,17 @@ class User < ApplicationRecord
             a.likes.count <=> b.likes.count
         end
     end
+
+    def reviews_count
+        self.reviews.count
+    end
+
+    def shorter_bio
+        short_bio = self.bio.split(' ')
+        short_bio.take(7).join(' ')
+    end
+    
+    def likes_count
+        review.likes.count
+    end
 end

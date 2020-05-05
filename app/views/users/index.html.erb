@@ -1,0 +1,9 @@
+<h1>All Users:</h1>
+
+<% @users.each do |user| %>
+    <div class="user_list_card">
+        <h3><%= link_to user.name, user_path(user) %></h3>
+        <p><%= "@#{user.username}" %> | <%= user.reviews_count %> reviews</p>
+        <p><%= "#{user.shorter_bio}..." %></p>
+    </div>
+<% end %>

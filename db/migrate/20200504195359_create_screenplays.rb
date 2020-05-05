@@ -7,7 +7,7 @@ class CreateScreenplays < ActiveRecord::Migration[6.0]
       t.string :description
       t.integer :num_seasons
       t.integer :num_episodes
-      t.float :runtime
+      t.integer :runtime
 
       t.timestamps
     end

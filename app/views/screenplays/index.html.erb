@@ -1,0 +1,30 @@
+<h1>Screenplays Index Page</h1>
+<%= link_to "Back to Home Page", root_path %>
+<h2>Films</h2>
+
+<% @screenplays.each do |screenplay| %>
+  <% if screenplay.category == "Film" %>
+    <b><%= link_to screenplay.title, screenplay %></b><br>
+    <%= "Runtime: #{screenplay.runtime} minutes" %><br>
+    <%= "Description: #{screenplay.description}"%><br>
+    <%= image_tag(screenplay.picture_url) %><br><br>
+    <br>
+  <% end %>
+<% end %>
+
+<h3>TV Shows</h3>
+<% @screenplays.each do |screenplay| %>
+  <% if screenplay.category == "TV Show" %>
+    <b><%= link_to screenplay.title, screenplay %></b><br>
+    <%= "Runtime: #{screenplay.runtime} minutes" %><br>
+    <%= "Number of Seasons: #{screenplay.num_seasons}"%><br>
+    <%= "Number of Episodes: #{screenplay.num_episodes}"%><br>
+    <%= "Description: #{screenplay.description}"%><br>
+    <%= image_tag(screenplay.picture_url) %><br><br>
+    <br>
+  <% end %>
+<% end %>
+<br>
+<br>
+<br>
+<%= link_to "Back to Home Page", root_path %>

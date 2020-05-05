@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :users #Isaac
   ##new #create ##index ##show ##edit #update ##delete /-/-/ ##login
   
-  resources :screenplays, only: [:index, :show] #Auz
+  resources :screenplays, only: [:index, :show] 
+  #Auz
   ##index, ##show
 
   root 'application#homepage'

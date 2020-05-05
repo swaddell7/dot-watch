@@ -1,0 +1,19 @@
+<h1><%= @screenplay.title %></h1>
+
+<% if @screenplay.category == "Film" %>
+    <%= "Runtime: #{@screenplay.runtime} minutes" %><br>
+    <%= "Description: #{@screenplay.description}"%><br>
+    <%= image_tag(@screenplay.picture_url) %>
+    <br>
+<% else %>
+    <%= "Runtime: #{@screenplay.runtime} minutes" %><br>
+    <%= "Number of Seasons: #{@screenplay.num_seasons}"%><br>
+    <%= "Number of Episodes: #{@screenplay.num_episodes}"%><br>
+    <%= "Description: #{@screenplay.description}"%><br>
+    <%= image_tag(@screenplay.picture_url) %>
+    <br>
+<% end %>
+<br>
+<br>
+<%= link_to "Back to Home Page", root_path %><br>
+<%= link_to "Back to all Screenplays", screenplays_path %>

@@ -1,0 +1,26 @@
+<h1>Welcome back, <%= @user.name %>.</h1>
+
+<h2>Your reviews:</h2>
+
+<% @user.reviews.each do |review| %>
+  <h3>Title: <%= review.screenplay.title %></h3>
+  <%= image_tag(review.screenplay.picture_url)%>
+  <p>Review: <%= review.title %></p>
+  <p>Rating: <%= review.rating.to_i %></p>
+<% end %>
+
+<br>
+<h2>Your most popular review:</h2>
+
+<h3>Title: <%= @popular_review.screenplay.title %></h3>
+<p>Review: <%= @popular_review.title %></p>
+<p>Likes: <%= @popular_review.likes.count %></p>
+<br>
+
+<h2>Top-rated screenplays today:</h2>
+<% @top_three.each do |screenplay, av_rating| %>
+  <h3>Title: <%= screenplay.title%></h3>
+  <%= image_tag(screenplay.picture_url)%>
+  <p>Average Rating: <%= av_rating %></p>
+<% end %>
+<br> 

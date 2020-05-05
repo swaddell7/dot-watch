@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :screenplays, only: [:index, :show] #Auz
   ##index, ##show
 
-  #root - ##homepage of a user #Sam
+  root 'application#homepage'
+  ##homepage of a user
 end

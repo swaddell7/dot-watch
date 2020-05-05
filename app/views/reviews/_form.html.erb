@@ -12,7 +12,7 @@
 
 <%= form_for review do |f| %>
     <%= f.label :screenplay_id, "Screenplay:" %>
-    <%= f.text_field :screenplay_id, list: "screenplays_autocomplete", onfocus: "this.value=''", value: "#{review.screenplay.title}" %>
+    <%= f.text_field :screenplay_id, list: "screenplays_autocomplete", onfocus: "this.value=''", value: "#{review.get_screenplay}" %>
       <datalist id="screenplays_autocomplete">
         <% Screenplay.all.each do |screenplay| %>
           <option value="<%= screenplay.title %>">

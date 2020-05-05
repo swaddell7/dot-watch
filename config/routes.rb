@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   resources :screenplays, only: [:index, :show] 
   #Auz
   ##index, ##show
+  get '/signup', to: 'users#new', as: 'signup'
+
+  get '/login', to: 'sessions#new', as: 'login'
+  post '/login', to: 'sessions#create'
+
+  delete '/logout', to: 'sessions#destroy', as: 'logout'
 
   root 'application#homepage'
   ##homepage of a user

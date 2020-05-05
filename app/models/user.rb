@@ -1,10 +1,17 @@
 class User < ApplicationRecord
+    has_secure_password
+
     has_many :reviews
     has_many :screenplays, through: :reviews
     # user.likes is the number of likes a user has left on reviews
     has_many :likes
     # user.review_likes is the number of likes a user has received on the reviews they've written
     has_many :review_likes, through: :reviews, source: :likes
+
+    validates_presence_of :name, :username
+    validates_presence_of :password, :password_confirmation, on: :new
+    validates_uniqueness_of :username
+    
 
     def most_popular_review
         reviews.max do |a, b|
@@ -17,8 +24,10 @@ class User < ApplicationRecord
     end
 
     def shorter_bio
+      if self.bio
         short_bio = self.bio.split(' ')
         short_bio.take(7).join(' ')
+      end 
     end
     
     def likes_count

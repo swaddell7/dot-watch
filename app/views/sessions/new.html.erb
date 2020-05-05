@@ -1,0 +1,15 @@
+<h1 class="center">Welcome to DotWatch</h1>
+
+<%= flash[:login_error] %>
+
+<%= form_tag login_path do %>
+  <%= label_tag :username %>
+  <%= text_field_tag :username %>
+  <br>
+  <br>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+
+  <br>
+  <%= submit_tag "Login"%>
+<% end %>

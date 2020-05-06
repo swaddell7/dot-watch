@@ -51,6 +51,12 @@ class ReviewsController < ApplicationController
     end 
   end 
 
+  def delete
+    find_review
+    @review.destroy
+    redirect_to reviews_path
+  end
+
   private
 
   def find_review

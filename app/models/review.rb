@@ -8,6 +8,10 @@ class Review < ApplicationRecord
     validates_length_of :title, maximum: 140
     validates_length_of :description, minimum: 50
 
+    def created_at_to_date
+      self.created_at.strftime("%B %d, %Y")
+    end
+
     def get_screenplay
       if self.screenplay
         self.screenplay.title

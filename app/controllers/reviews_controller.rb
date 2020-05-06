@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   before_action :find_review, only: [:show, :edit, :update, :like]
   
   def index
-    @reviews = Review.all
+    @reviews = Review.all.order("created_at DESC")
   end
 
   def new

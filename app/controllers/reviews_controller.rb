@@ -18,6 +18,8 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     if @review.valid?
       @review.save
+      flash[:message] = "Review successfully created!"
+      flash[:gif] = @review.random_gif
       redirect_to @review
     else
       render :new

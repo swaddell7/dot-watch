@@ -22,4 +22,17 @@ class Review < ApplicationRecord
       self.screenplay ? self.screenplay.title : nil
     end
 
+    def random_gif
+      uri = URI.parse("https://api.giphy.com/v1/gifs/random?api_key=ZnyMwXrNuHSmSQcmbcDFmhiSfFbASYSz&tag=#{search_term}")
+      response = Net::HTTP.get_response(uri)
+      body = response.body
+      gif = JSON.parse(body)
+      link = gif["data"]["images"]["original"]["webp"]
+      p link
+    end
+
+    def search_term
+      self.screenplay.title.gsub(/\s+/, "").downcase
+    end
+
 end

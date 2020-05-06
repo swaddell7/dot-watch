@@ -14,6 +14,5 @@
     <br>
 <% end %>
 <br>
-<br>
-<%= link_to "Back to Home Page", root_path %><br>
-<%= link_to "Back to all Screenplays", screenplays_path %>
+<h2>Review <%= @screenplay.title %>:</h2>
+<%= render partial: "reviews/form", locals: { review: @review } %>

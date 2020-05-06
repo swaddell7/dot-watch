@@ -7,6 +7,7 @@ class ScreenplaysController < ApplicationController
 
   def show
     @screenplay = Screenplay.find(params[:id])
+    @review = Review.new
   end
 
 end

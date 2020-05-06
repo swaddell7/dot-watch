@@ -4,10 +4,10 @@
 
 <% if @user.reviews.length > 0 %>
   <% @user.reviews.each do |review| %>
-    <h3>Review: <%= link_to review.title, review %></h3>
-    <%= link_to image_tag(review.screenplay.picture_url), screenplay_path(review.screenplay) %>
-    <p>Screenplay: <%= link_to review.screenplay.title, screenplay_path(review.screenplay) %></p>
-    <p>Rating: <%= review.rating.to_i %> / 5</p>
+      <h3>Review: <%= link_to review.title, review %></h3>
+      <%= link_to image_tag(review.screenplay.picture_url), screenplay_path(review.screenplay) %>
+      <p>Screenplay: <%= link_to review.screenplay.title, screenplay_path(review.screenplay) %></p>
+      <p>Rating: <%= review.rating.to_i %> / 5</p>
   <% end %>
 <% else %>
   <p>You haven't added any reviews yet. <%= link_to "Create a review", new_review_path%></p>

@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :screenplays, only: [:index, :show] 
   #Auz
   ##index, ##show
+
+  post '/screenplays', to: 'screenplays#filter', as: 'screenplays_filter'
+
   put 'reviews/:id/like', to: 'reviews#like', as: 'like'
 
   get '/signup', to: 'users#new', as: 'signup'

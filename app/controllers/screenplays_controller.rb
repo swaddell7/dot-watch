@@ -3,7 +3,14 @@ class ScreenplaysController < ApplicationController
  
   def index
     @screenplays = Screenplay.all
-  end 
+  end
+
+  def filter
+    @genre = params[:screenplay][:genre_ids]
+    @screenplays = Screenplay.filter(@genre)
+
+    render :index
+  end
 
   def show
     @screenplay = Screenplay.find(params[:id])

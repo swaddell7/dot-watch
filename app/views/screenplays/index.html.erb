@@ -1,5 +1,14 @@
 <h1 class="center">Screenplays</h1>
-<%= link_to "Back to Home Page", root_path %>
+
+<%= form_tag screenplays_path do %>
+  <%= collection_select :screenplay, :genre_ids, Genre.all, :id, :name, :prompt => true %>
+  <br>
+  <br>
+  <%= submit_tag "Filter" %>
+<% end %>
+
+<%= link_to "Reset filter", screenplays_path %> 
+
 <h2>Films</h2>
 
 <% @screenplays.each do |screenplay| %>

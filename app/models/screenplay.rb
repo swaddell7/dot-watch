@@ -28,4 +28,19 @@ class Screenplay < ApplicationRecord
         end
         hash.sort_by { |screen, av_review| -av_review }
     end
+
+    # filtering
+    def self.filter(genre)
+        screenplays = []
+
+        self.all.each do |screenplay|
+            screenplay.genre_ids.each do |genre_id|        
+              if genre_id == genre.to_i
+                screenplays << screenplay
+              end
+            end
+        end
+
+        screenplays
+    end
 end

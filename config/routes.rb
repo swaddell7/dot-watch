@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :screenplays, only: [:index, :show] 
   #Auz
   ##index, ##show
+  put 'reviews/:id/like', to: 'reviews#like', as: 'like'
+
   get '/signup', to: 'users#new', as: 'signup'
 
   get '/login', to: 'sessions#new', as: 'login'

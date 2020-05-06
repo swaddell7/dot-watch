@@ -30,7 +30,17 @@ class User < ApplicationRecord
       end 
     end
     
-    def likes_count
-        review.likes.count
-    end
+    # def likes_count
+    #     review.likes.count
+    # end
+
+    def user_badge
+      if self.review_likes.count < 4
+        "Newbie"
+      elsif self.review_likes.count > 4 && self.review_likes.count < 9 
+        "Film Critic"
+      elsif self.review_likes.count > 9 
+        "Uber Fan Girl Magnet"
+      end 
+    end 
 end

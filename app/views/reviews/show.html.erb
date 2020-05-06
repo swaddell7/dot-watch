@@ -10,6 +10,11 @@
 <text>Rating: <%= @review.rating %> Stars</text>
 <br>
 <br>
+<%= flash[:like_error] %>
+<text>Likes: <%= @review.likes.count %></text>
+<%= button_to 'Give a Like!', like_path(@review), method: :put %>
+<br>
+<br>
 <% if current_user == @review.user %>
   <%= link_to "Edit review", edit_review_path(@review) %>
 <% end %>

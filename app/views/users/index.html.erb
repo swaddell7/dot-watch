@@ -4,6 +4,7 @@
     <div class="user_list_card">
         <h3><%= link_to user.name, user_path(user) %></h3>
         <p><%= "@#{user.username}" %> | <%= user.reviews_count %> reviews</p>
+        <p><%= user.user_badge %> | <%= user.review_likes.count %></p>
         <p><%= "#{user.shorter_bio}..." %></p>
     </div>
 <% end %>

@@ -17,13 +17,16 @@ html, body {
     background-color: #0A0A0A;
     font-family: Arial, Helvetica, sans-serif;
     color: #ffffff;
+}
 
+.center {
+    text-align: center;
 }
 
 a {
-    color: #9E9E9E 
-
+    color: #9E9E9E;
 }
+
 
 img {
     width: 20%;
@@ -67,30 +70,4 @@ img {
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-}
-
-/* .navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 12px;
-    background-color: cornflowerblue;
-}
-
-.navbar li {
-    display: inline;
-}
-
-.navbar li a {
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-} */
-
-.center {
-  text-align: center;
-}
-
-.item {
-    border: 3px solid black !important
 }

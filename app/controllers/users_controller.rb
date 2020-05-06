@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
-    before_action :find_user, only: [:show, :edit, :update]
+  before_action :find_user, only: [:show, :edit, :update]
+  before_action :authorized, only: [:index, :show, :edit, :update, :delete]
+
   
     def index
         @users = User.all
     end
 
     def show
-      
     end
 
     def new
@@ -26,7 +27,9 @@ class UsersController < ApplicationController
     end 
 
     def edit
-
+      if @current_user != @user
+        redirect_to @user
+      end
     end 
 
     def update

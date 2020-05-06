@@ -10,5 +10,6 @@
 <text>Rating: <%= @review.rating %> Stars</text>
 <br>
 <br>
-<%= link_to "Edit review", edit_review_path(@review) %>
-<%= link_to "Back to All Reviews", reviews_path %>
+<% if current_user == @review.user %>
+  <%= link_to "Edit review", edit_review_path(@review) %>
+<% end %>

@@ -2,25 +2,31 @@
 
 <h2>Your reviews:</h2>
 
-<% @user.reviews.each do |review| %>
-  <h3>Title: <%= review.screenplay.title %></h3>
-  <%= image_tag(review.screenplay.picture_url)%>
-  <p>Review: <%= review.title %></p>
-  <p>Rating: <%= review.rating.to_i %></p>
+<% if @user.reviews.length > 0 %>
+  <% @user.reviews.each do |review| %>
+    <h3>Review: <%= link_to review.title, review %></h3>
+    <%= link_to image_tag(review.screenplay.picture_url), screenplay_path(review.screenplay) %>
+    <p>Screenplay: <%= link_to review.screenplay.title, screenplay_path(review.screenplay) %></p>
+    <p>Rating: <%= review.rating.to_i %> / 5</p>
+  <% end %>
+<% else %>
+  <p>You haven't added any reviews yet. <%= link_to "Create a review", new_review_path%></p>
 <% end %>
 
 <br>
-<h2>Your most popular review:</h2>
+<% if @popular_review %>
+  <h2>Your most popular review:</h2>
 
-<h3>Title: <%= @popular_review.screenplay.title %></h3>
-<p>Review: <%= @popular_review.title %></p>
-<p>Likes: <%= @popular_review.likes.count %></p>
-<br>
+  <h3>Review: <%= link_to @popular_review.title, @popular_review %></h3>
+  <p>Screenplay: <%= link_to @popular_review.screenplay.title, screenplay_path(@popular_review.screenplay) %></p>
+  <p>Likes: <%= @popular_review.likes.count %></p>
+  <br>
+<% end %>
 
 <h2>Top-rated screenplays today:</h2>
 <% @top_three.each do |screenplay, av_rating| %>
-  <h3>Title: <%= screenplay.title%></h3>
-  <%= image_tag(screenplay.picture_url)%>
+  <h3>Title: <%= link_to screenplay.title, screenplay %></h3>
+  <%= link_to image_tag(screenplay.picture_url), screenplay %>
   <p>Average Rating: <%= av_rating %></p>
 <% end %>
 <br> 

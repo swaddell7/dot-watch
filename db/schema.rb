@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_220323) do
     t.string "description"
     t.integer "num_seasons"
     t.integer "num_episodes"
-    t.integer "runtime"
+    t.float "runtime"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

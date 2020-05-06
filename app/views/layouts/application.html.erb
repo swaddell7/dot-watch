@@ -12,10 +12,16 @@
   <body>
     <div class="navbar">
       <ul>
-        <li><%= link_to "DotWatch", root_path %></li>
-        <li><%= link_to "Screenplays", screenplays_path %></li>
-        <li><%= link_to "Reviews", reviews_path %></li>
-        <li><%= link_to "Users", users_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to "DotWatch", root_path %></li>
+          <li><%= link_to "Screenplays", screenplays_path %></li>
+          <li><%= link_to "Reviews", reviews_path %></li>
+          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign up", signup_path %></li>
+          <li><%= link_to "Log In", login_path%></li>
+        <% end %>
       </ul>
     </div>
     <%= yield %>

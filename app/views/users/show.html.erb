@@ -1,6 +1,6 @@
-<h3><%= link_to "Back to all users", users_path %></h3>
-
-<h3><%= link_to "Edit my profile", edit_user_path %></h3>
+<% if current_user == @user %>
+    <h3><%= link_to "Edit my profile", edit_user_path %></h3>
+<% end %>
 
 <div class="user_profile_card">
     <h1><%= @user.name %>'s Profile</h1>

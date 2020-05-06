@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :authorized, only: :delete
 
   def new 
 
@@ -16,8 +17,9 @@ class SessionsController < ApplicationController
     end 
   end 
 
-  def delete
-
+  def destroy
+    session.delete(:user_id)
+    redirect_to login_path
   end 
   
 end

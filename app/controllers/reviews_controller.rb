@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authorized
+  before_action :find_review, only: [:show, :edit, :update]
   
   def index
     @reviews = Review.all
@@ -10,12 +12,11 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find(params[:id])
   end
 
   def create
     @review = Review.new(review_params)
-
+    @review.user_id = current_user.id
     if @review.valid?
       @review.save
       redirect_to @review
@@ -25,12 +26,12 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Review.find(params[:id])
+    if current_user != @review.user
+      redirect_to @review
+    end
   end
 
   def update
-    @review = Review.find(params[:id])
-    
     if @review.update(review_params)
       redirect_to @review
     else
@@ -40,8 +41,12 @@ class ReviewsController < ApplicationController
 
   private
 
+  def find_review
+    @review = Review.find(params[:id])
+  end
+
   def review_params
-    params.require(:review).permit(:title, :description, :rating, :screenplay_id, :user_id)
+    params.require(:review).permit(:title, :description, :rating, :screenplay_title)
   end
 
 end

@@ -1,4 +1,5 @@
 class ScreenplaysController < ApplicationController
+  before_action :authorized
  
   def index
     @screenplays = Screenplay.all

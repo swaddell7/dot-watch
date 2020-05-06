@@ -16,3 +16,17 @@
 <br>
 <h2>Review <%= @screenplay.title %>:</h2>
 <%= render partial: "reviews/form", locals: { review: @review } %>
+<br>
+<br>
+<h2> <%=@screenplay.title %> Reviews:</h2><br>
+<% @screenplay.reviews.each do |review| %>
+    <h3><%= link_to review.title, review_path(review) %><br></h3>
+    <%= review.description%><br>
+    <text>Rating: <%= review.rating %> / 5.0</text>
+    <br>
+    <text>Likes: <%= review.likes.count %></text>
+  <% end %>
+<br>
+<br>
+<%= link_to "Back to All Screenplays", screenplays_path %><br>
+<%= link_to "Back to Home Page", root_path %>

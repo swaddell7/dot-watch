@@ -19,6 +19,9 @@ Rails.application.routes.draw do
 
   delete '/logout', to: 'sessions#destroy', as: 'logout'
 
+  get '/reviews/:id/delete', to: 'reviews#delete', as: 'delete'
+  get '/users/:id/delete', to: 'users#delete', as: 'delete_account'
+
   root 'application#homepage'
   ##homepage of a user
 end

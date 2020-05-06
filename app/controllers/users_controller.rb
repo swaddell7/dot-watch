@@ -41,6 +41,15 @@ class UsersController < ApplicationController
       end 
     end 
 
+    def delete
+      find_user
+      @user.destroy
+      @user.reviews.destroy_all
+      @user.review_likes.destroy_all
+
+      redirect_to signup_path
+    end
+
     private
 
     def find_user

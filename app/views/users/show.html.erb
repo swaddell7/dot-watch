@@ -10,6 +10,7 @@
     <% end %>
     <h4><%= @user.location %></h4>
     <p><%= @user.bio %></p>
+    <p>Lifetime received likes: <%= @user.review_likes.count %></p>
 </div>
 
 <h1>Reviews:</h1>

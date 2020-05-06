@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :authorized
-  before_action :find_review, only: [:show, :edit, :update]
+  before_action :find_review, only: [:show, :edit, :update, :like]
   
   def index
     @reviews = Review.all
@@ -8,7 +8,6 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    # @screenplays = Screenplay.all
   end
 
   def show
@@ -40,6 +39,17 @@ class ReviewsController < ApplicationController
       render :edit
     end
   end
+
+  def like
+    @like = Like.find_by(user_id: session[:user_id], review_id: @review.id)
+    if @like
+      flash[:like_error] = "You've already liked this review!"
+      redirect_to @review
+    else #@like.user_id != session[:user_id]
+      Like.create(user_id: session[:user_id], review_id: @review.id)
+      redirect_to @review
+    end 
+  end 
 
   private
 

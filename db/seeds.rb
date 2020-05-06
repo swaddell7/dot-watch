@@ -12,7 +12,7 @@ Review.destroy_all
 Like.destroy_all
 ScreenplayGenre.all
 
-genres = %w[Action/Adventure Anime Anthology Biography Comedy Drama Fantasy Film Noir Historical Horror Musical ScienceFiction Thriller]
+genres = %w[Action/Adventure Anime Anthology Biography Comedy Drama Fantasy FilmNoir Historical Horror Musical ScienceFiction Thriller]
 
 genres.each do |genre|
   Genre.create(name: genre)

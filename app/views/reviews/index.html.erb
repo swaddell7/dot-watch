@@ -1,9 +1,9 @@
 <h1 class="center">Reviews</h1>
 
 <% @reviews.each do |review| %>
-  <h3><%= link_to review.title, review_path(review) %><br></h3>
-  <%= review.description%><br>
-  <text>Rating: <%= review.rating %> / 5.0</text>
-  <br>
-  <text>Likes: <%= review.likes.count %></text>
+  <h3><%= link_to review.title, review_path(review) %></h3>
+  <p><%= review.created_at_to_date %></p>
+  <p><%= review.description%></p>
+  <p>Rating: <%= review.rating.to_i %> / 5</p>
+  <p>Likes: <%= review.likes.count %></p>
 <% end %>

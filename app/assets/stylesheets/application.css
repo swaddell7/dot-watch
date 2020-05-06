@@ -23,6 +23,10 @@ html, body {
     text-align: center;
 }
 
+a {
+    color: #9E9E9E 
+}
+
 
 img {
     width: 20%;

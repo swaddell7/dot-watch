@@ -2,18 +2,18 @@
 
 <div class="ui centered link cards">
   <% @reviews.each do |review| %>
-    <div class="ui card">
+    <div class="ui card custom_card">
       <div class="content">
         <div class="header"><%= link_to review.short_title..., review_path(review) %></div>
-        <div class="meta"><%= review.get_screenplay %></div>
-        <div class="meta"><%= review.created_at_to_date %></div>
+        <div class="meta"><p><%= review.get_screenplay %></p></div>
+        <div class="meta"><p><%= review.created_at_to_date %></p></div>
         <div class="description">
-         <%= review.short_desc ... %>
+         <p><%= review.short_desc ... %></p>
         </div>
       </div>
       <div class="extra content">
         <i class="thumbs up outline icon"></i>
-        <%= review.likes.count %>
+        <p><%= review.likes.count %></p>
         <% if review.rating == 1 %>
           <i class="star icon"></i>
         <% elsif review.rating == 2 %>

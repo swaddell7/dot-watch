@@ -157,4 +157,26 @@
 
 option { 
     background-color: #222222; 
+    
+/* CARD STYLING */
+
+.custom_card {
+    background-color: #222222 !important;
+    box-shadow: none !important;
+}
+
+.custom_card a, i {
+    color: #fff;
+}
+
+.custom_card p {
+    display: inline;
+    color: #fff;
+}
+
+.custom_card img {
+    display: block !important;
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
 }

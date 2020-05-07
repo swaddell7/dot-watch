@@ -5,7 +5,7 @@
 <% if @user.reviews.length > 0 %>
   <div class="ui centered center link cards">
     <% @user.reviews.each do |review| %>
-      <div class="card">
+      <div class="ui card custom_card">
         <div class="ui image">
           <%= link_to image_tag(review.screenplay.picture_url), review %>
         </div>
@@ -33,18 +33,18 @@
 
 <% if @popular_review %>
   <h2 class="center">Your most popular review:</h2>
-  <div class="ui centered center link card">
+  <div class="ui centered center link card custom_card">
     <div class="content">
       <div class="header">
         <%= link_to @popular_review.title, @popular_review %>
       </div>
       <div class="description">
-        Screenplay: <%= link_to @popular_review.screenplay.title, screenplay_path(@popular_review.screenplay) %>
+        <%= link_to "Screenplay: #{@popular_review.screenplay.title}", screenplay_path(@popular_review.screenplay) %>
       </div>
     </div>
     <div class="extra content">
       <i class="hand peace icon"></i>
-      Likes: <%= @popular_review.likes.count %>
+      <p style="display: inline;">Likes: <%= @popular_review.likes.count %></p>
     </div>
   </div>
 <% end %>
@@ -53,7 +53,7 @@
 
 <div class="ui centered center link cards">
   <% @top_three.each do |screenplay, av_rating| %>
-    <div class="card">
+    <div class="card custom_card">
       <div class="ui image">
         <%= link_to image_tag(screenplay.picture_url), screenplay %>
       </div>
@@ -63,7 +63,7 @@
         </div>
       </div>
       <div class="extra content">
-        <span>Average Rating: <%= av_rating %></span>
+        <p>Average Rating: <%= av_rating %></p>
       </div>
     </div>
   <% end %>

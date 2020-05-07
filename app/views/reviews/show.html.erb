@@ -16,7 +16,7 @@
       <p>Review by: <%= link_to @review.user.name, user_path(@review.user) %></p>
     </div>
     <div class="center meta">
-      <p>Screenplay: <%= link_to @review.screenplay.title, screenplay_path(@review.screenplay) %></p><br>
+      <p>Film / TV Show: <%= link_to @review.screenplay.title, screenplay_path(@review.screenplay) %></p><br>
     </div>
     <div class="center description">
       <p><%= @review.description %></p><br>

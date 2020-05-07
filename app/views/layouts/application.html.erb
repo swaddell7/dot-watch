@@ -30,6 +30,8 @@
         </div>    
         <% end %>
     <%= yield %>
-    <%= link_to '<button type="button" class="new_post_btn"><i class="plus icon"></i></button>'.html_safe, new_review_path %>
+        <% if logged_in? %>
+          <%= link_to '<button type="button" class="new_post_btn"><i class="plus icon"></i></button>'.html_safe, new_review_path %>
+        <% end %>
   </body>
 </html>

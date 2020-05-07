@@ -170,7 +170,7 @@ option {
     color: #fff;
 }
 
-.custom_card p, h4 {
+.custom_card p, h4, h1 {
     display: inline;
     color: #fff !important;
 }

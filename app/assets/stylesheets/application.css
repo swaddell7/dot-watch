@@ -22,6 +22,10 @@
     text-align: center;
 }
 
+.active_item {
+    background-color: #e30914 !important;
+}
+
 /* LOGIN STYLING */
 
 .session_elements_holder {
@@ -184,4 +188,30 @@ option {
 
 .custom_segment {
     background-color: #222222 !important;
+}
+
+.new_post_btn {
+    z-index: 100000;
+    position: fixed;
+    bottom: 30px;
+    right: 50px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border-style: hidden;
+    background-color: #e30914;
+}
+
+.new_post_btn i {
+    left: 1.5px;
+    position: relative;
+    font-size: 18px;
+}
+
+.new_post_btn:hover {
+    cursor: pointer;
+}
+
+.new_post_btn:focus {
+    outline: 0;
 }

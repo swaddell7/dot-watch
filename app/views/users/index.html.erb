@@ -1,10 +1,25 @@
-<h1 class="center">All Users</h1>
+<h2 class="center">All Users</h2>
 
-<% @users.each do |user| %>
-    <div class="user_list_card">
-        <h3><%= link_to user.name, user_path(user) %></h3>
-        <p><%= "@#{user.username}" %> | <%= user.reviews_count %> reviews</p>
-        <p><%= user.user_badge %> | <%= user.review_likes.count %></p>
-        <p><%= "#{user.shorter_bio}..." %></p>
-    </div>
-<% end %>
+<div class="ui centered link cards">
+    <% @users.each do |user| %>
+        <div class="card">
+            <div class="content">
+                <div class="center header">
+                    <%= link_to "#{user.name} | @#{user.username}", user %>
+                </div>
+                <div class="center description">
+                    <%= "#{user.shorter_bio}..." %>
+                </div>
+            </div>
+            <div class="extra content">
+                <i class="newspaper icon"></i>
+                <%= user.reviews_count %> reviews
+            </div>
+            <div class="extra content">
+                <i class="hand peace icon"></i>
+                    <%= user.review_likes.count %> likes
+                    <span class="right floated"><%= user.user_badge %></span>
+            </div>
+        </div>
+    <% end %>
+</div>

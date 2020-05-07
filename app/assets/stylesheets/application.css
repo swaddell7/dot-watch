@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-html, body {
+ html, body {
     background-color: #0A0A0A;
     color: #ffffff;
 }
@@ -24,6 +24,64 @@ html, body {
 
 a {
     color: #9E9E9E;
+}
+
+
+/* img {
+    width: 20%;
+    height: auto;
+} */
+
+/* LOGIN STYLING */
+
+.login_elements_holder {
+    position: relative;
+    top: 120px;
+}
+
+.logo_slogan_holder {
+    padding-bottom: 50px;
+}
+
+.logo {
+    width: 270px;
+}
+
+.slogan {
+    font-size: 22px;
+    margin-top: 28px;
+}
+
+.login_items_holder {
+    width: 350px;
+}
+
+.login_input {
+    margin-bottom: 15px !important;
+    height: 50px;
+    background-color: #222222 !important;
+    color: #fff !important;
+}
+
+.login_input:focus {
+    border-color: #e30914 !important;
+}
+
+.login_btn {
+    height: 45px;
+    width: 260px;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+    border-radius: 100px !important;
+    background-color: #e30914 !important;
+    color: #fff !important;
+    text-transform: uppercase !important;
+}
+
+.bottom_text {
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
 }
 
 .user_list_card {

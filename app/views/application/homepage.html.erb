@@ -1,45 +1,70 @@
-<h1 class="center">Welcome back, <%= @user.name %>.</h1>
+<h1 class="center">Welcome back @<%= @user.username %></h1>
 
 <h2 class="center">Your reviews:</h2>
 
 <% if @user.reviews.length > 0 %>
-  <div class="ui center link cards">
-  <% @user.reviews.each do |review| %>
-  <div class="card">
-    <div class="ui image">
-      <%= link_to image_tag(review.screenplay.picture_url), screenplay_path(review.screenplay) %>
-    </div>
+  <div class="ui centered center link cards">
+    <% @user.reviews.each do |review| %>
+      <div class="card">
+        <div class="ui image">
+          <%= link_to image_tag(review.screenplay.picture_url), review %>
+        </div>
+        <div class="content">
+          <div class="header">
+            <%= link_to review.title, review %>
+          </div>
+          <div class="description">
+            <%= link_to review.screenplay.title, screenplay_path(review.screenplay) %>
+          </div>
+        </div>
+        <div class="extra content">
+        <% review.rating.to_i.times do %>
+          <i class="star icon"></i>
+        <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="description">
+    You haven't added any reviews yet. <%= link_to "Create a review", new_review_path%>
+  </div>
+<% end %>
+
+<% if @popular_review %>
+  <h2 class="center">Your most popular review:</h2>
+  <div class="ui centered center link card">
     <div class="content">
-      <div class="header">Review: <%= link_to review.title, review %></div>
+      <div class="header">
+        <%= link_to @popular_review.title, @popular_review %>
+      </div>
       <div class="description">
-        Screenplay: <%= link_to review.screenplay.title, screenplay_path(review.screenplay) %>
+        Screenplay: <%= link_to @popular_review.screenplay.title, screenplay_path(@popular_review.screenplay) %>
       </div>
     </div>
     <div class="extra content">
-    <span>Rating: <%= review.rating.to_i %> / 5</span>
+      <i class="hand peace icon"></i>
+      Likes: <%= @popular_review.likes.count %>
+    </div>
   </div>
-  </div>
+<% end %>
+
+<h2 class="center">Top-rated screenplays today:</h2>
+
+<div class="ui centered center link cards">
+  <% @top_three.each do |screenplay, av_rating| %>
+    <div class="card">
+      <div class="ui image">
+        <%= link_to image_tag(screenplay.picture_url), screenplay %>
+      </div>
+      <div class="content">
+        <div class="header">
+          <%= link_to screenplay.title, screenplay %>
+        </div>
+      </div>
+      <div class="extra content">
+        <span>Average Rating: <%= av_rating %></span>
+      </div>
+    </div>
   <% end %>
-  </div>
-<% else %>
-  <p>You haven't added any reviews yet. <%= link_to "Create a review", new_review_path%></p>
-<% end %>
-
-
-<br>
-<% if @popular_review %>
-  <h2>Your most popular review:</h2>
-
-  <h3>Review: <%= link_to @popular_review.title, @popular_review %></h3>
-  <p>Screenplay: <%= link_to @popular_review.screenplay.title, screenplay_path(@popular_review.screenplay) %></p>
-  <p>Likes: <%= @popular_review.likes.count %></p>
-  <br>
-<% end %>
-
-<h2>Top-rated screenplays today:</h2>
-<% @top_three.each do |screenplay, av_rating| %>
-  <h3>Title: <%= link_to screenplay.title, screenplay %></h3>
-  <%= link_to image_tag(screenplay.picture_url), screenplay %>
-  <p>Average Rating: <%= av_rating %></p>
-<% end %>
-<br> 
+</div>

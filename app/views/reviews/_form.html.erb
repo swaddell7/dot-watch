@@ -1,36 +1,44 @@
-<% if review.errors.any? %>
-    <div>
-        <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
-        <ul>
-            <% review.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
+<div class="ui centered grid">
+  <div class="session_items_holder">
+    <% if review.errors.any? %>
+      <div class="ui error message">
+        <div class="header">
+          Your review couldn't be saved:
+        </div>
+        <ul class="list">
+          <% @review.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
         </ul>
+      </div>
+    <% end %>
+    <div class="ui inverted large form">
+      <%= form_for review do |f| %>
+        <div>
+          <%= f.label :screenplay_title, "Screenplay:" %>
+          <%= f.text_field :screenplay_title, list: "screenplays_autocomplete", onfocus: "this.value=''", value: "#{review.get_screenplay}" %>
+          <datalist id="screenplays_autocomplete">
+            <% Screenplay.all.each do |screenplay| %>
+              <option value="<%= screenplay.title %>"></option>
+            <% end %>
+          </datalist>
+        </div>
+        <div>
+          <%= f.label :title, "Review title:" %>
+          <%= f.text_field :title, :class => "session_input" %>
+        </div>
+        <div>
+          <%= f.label :description, "Review description:" %>
+          <%= f.text_area :description, :class => "session_input" %>
+        </div>
+        <div>
+          <%= f.label :rating, "Review rating:" %>
+          <%= f.select :rating, [1, 2, 3, 4, 5], :class => "session_input" %>
+        </div>
+        <div>
+          <%= f.submit "Submit Review", :class => 'ui button session_btn' %>
+        </div>
+      <% end %>
     </div>
-<% end %>
-
-<%= form_for review do |f| %>
-    <%= f.label :screenplay_title, "Screenplay:" %>
-    <%= f.text_field :screenplay_title, list: "screenplays_autocomplete", onfocus: "this.value=''", value: "#{review.get_screenplay}" %>
-      <datalist id="screenplays_autocomplete">
-        <% Screenplay.all.each do |screenplay| %>
-          <option value="<%= screenplay.title %>"></option>
-        <% end %>
-      </datalist>
-    <br>
-    <br>
-    <%= f.label :title, "Review title:" %>
-    <%= f.text_area :title %>
-    <br>
-    <br>
-    <%= f.label :description, "Review description:" %>
-    <%= f.text_area :description %>
-    <br>
-    <br>
-    <%= f.label :rating, "Review rating:" %>
-    <%= f.select :rating, [1, 2, 3, 4, 5] %>
-    <br>
-    <br>
-    <%= f.submit %>
-<% end %>
+  </div>
+</div>

@@ -22,11 +22,6 @@
     text-align: center;
 }
 
-/* img {
-    width: 20%;
-    height: auto;
-} */
-
 /* LOGIN STYLING */
 
 .session_elements_holder {
@@ -153,6 +148,16 @@
     text-transform: uppercase !important;
 }
 
+/* REVIEW FORM STYLING */
+
+.ui.form select {
+    background-color: #222222;
+    color: #fff;
+}
+
+option { 
+    background-color: #222222; 
+    
 /* CARD STYLING */
 
 .custom_card {

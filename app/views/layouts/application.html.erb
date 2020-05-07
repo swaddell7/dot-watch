@@ -23,6 +23,7 @@
           <%= link_to "Reviews", reviews_path, class: "item" %>
           <%= link_to "All Users", users_path, class: "item" %>
           <div class="right menu">
+          <%= link_to "Write a Review", new_review_path, class: "item" %>
           <%= link_to "My Profile", user_path(session[:user_id]), class: "item" %>
           <%= link_to "Logout", logout_path, method: :delete, class: "item" %>
           </div>

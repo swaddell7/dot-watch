@@ -32,7 +32,6 @@ class Screenplay < ApplicationRecord
     # filtering
     def self.filter(genre)
         screenplays = []
-
         self.all.each do |screenplay|
             screenplay.genre_ids.each do |genre_id|        
               if genre_id == genre.to_i
@@ -40,7 +39,23 @@ class Screenplay < ApplicationRecord
               end
             end
         end
-
         screenplays
     end
+
+    def get_genre(screenplay)
+      gid = ScreenplayGenre.find_by(screenplay_id: screenplay.id).genre_id
+      Genre.find(gid).name
+    end 
+
+    def seasons
+      if self.num_seasons 
+        "Seasons: #{self.num_seasons}"
+      end 
+    end 
+
+    def episodes
+      if self.num_episodes 
+        "Episodes: #{self.num_episodes}"
+      end 
+    end 
 end

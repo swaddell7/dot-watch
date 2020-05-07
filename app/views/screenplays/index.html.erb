@@ -1,39 +1,60 @@
 <h1 class="center">Screenplays</h1>
-
-<%= form_tag screenplays_path do %>
-  <%= collection_select :screenplay, :genre_ids, Genre.all, :id, :name, :prompt => true %>
-  <br>
-  <br>
-  <%= submit_tag "Filter" %>
-<% end %>
-
-<%= link_to "Reset filter", screenplays_path %> 
-
-<h2>Films</h2>
-
-<% @screenplays.each do |screenplay| %>
-  <% if screenplay.category == "Film" %>
-    <b><%= link_to screenplay.title, screenplay %></b><br>
-    <%= "Runtime: #{screenplay.runtime} minutes" %><br>
-    <%= "Description: #{screenplay.description}"%><br>
-    <%= image_tag(screenplay.picture_url) %><br><br>
-    <br>
+<br>
+<br>
+<br>
+<div class="ui centered grid">
+  <%= form_tag screenplays_path, class: "ui form" do %>
+      <%= collection_select :screenplay, :genre_ids, Genre.all, :id, :name, {prompt: "Select a genre"}, {class: "ui dropdown"} %>
+      <br>
+      <br>
+      <%= submit_tag("Filter", class: "ui secondary button")%>
+      <%= link_to "Reset filter", screenplays_path, class: "ui secondary button" %> 
+    <% end %>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="ui centered center link cards">
+  <% @screenplays.each do |screenplay| %>
+    <div class="card">
+      <div class="ui image div_size_screenplay_index centered">
+        <%= link_to image_tag(screenplay.picture_url), screenplay, :class => "screenplay_index_img_size" %>
+      </div>
+      <div class="content">
+        <div class="header">
+          <%= link_to screenplay.title, screenplay %>
+          <br>
+          <br>
+            <h4 class="ui horizontal divider header">
+              Description
+            </h4>
+            <p class="screenplay_index_desc_font"><%= screenplay.description%></p>
+            <br>
+          <h4 class="ui horizontal divider header">
+              Information
+            </h4>
+            <p class="screenplay_index_desc_font">Length: <%= screenplay.runtime%> minutes</p>
+            <p class="screenplay_index_desc_font"><%= screenplay.seasons%></p>
+            <p class="screenplay_index_desc_font"><%= screenplay.episodes%></p>
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="ui segment">
+          <div class="ui two column very relaxed grid">
+            <div class="column">
+              <strong><text>Genre:</text></strong><p><%= screenplay.get_genre(screenplay) %></p>
+            </div>
+            <div class="column">
+              <strong><text>Category:</text></strong><p><%= screenplay.category %></p>
+            </div>
+          </div>
+          <div class="ui vertical divider">
+            &
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
-<% end %>
+</div>
 
-<h3>TV Shows</h3>
-<% @screenplays.each do |screenplay| %>
-  <% if screenplay.category == "TV Show" %>
-    <b><%= link_to screenplay.title, screenplay %></b><br>
-    <%= "Runtime: #{screenplay.runtime} minutes" %><br>
-    <%= "Number of Seasons: #{screenplay.num_seasons}"%><br>
-    <%= "Number of Episodes: #{screenplay.num_episodes}"%><br>
-    <%= "Description: #{screenplay.description}"%><br>
-    <%= image_tag(screenplay.picture_url) %><br><br>
-    <br>
-  <% end %>
-<% end %>
-<br>
-<br>
-<br>
-<%= link_to "Back to Home Page", root_path %>

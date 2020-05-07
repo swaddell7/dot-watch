@@ -16,7 +16,7 @@
       <%= form_for review do |f| %>
         <div>
           <%= f.label :screenplay_title, "Screenplay:" %>
-          <%= f.text_field :screenplay_title, list: "screenplays_autocomplete", onfocus: "this.value=''", value: "#{review.get_screenplay}" %>
+          <%= f.text_field :screenplay_title, list: "screenplays_autocomplete", onfocus: "this.value=''", value: "#{review.get_screenplay}", :class => "edit_page_session_input" %>
           <datalist id="screenplays_autocomplete">
             <% Screenplay.all.each do |screenplay| %>
               <option value="<%= screenplay.title %>"></option>
@@ -25,15 +25,15 @@
         </div>
         <div>
           <%= f.label :title, "Review title:" %>
-          <%= f.text_field :title, :class => "session_input" %>
+          <%= f.text_field :title, :class => "edit_page_session_input" %>
         </div>
         <div>
           <%= f.label :description, "Review description:" %>
-          <%= f.text_area :description, :class => "session_input" %>
+          <%= f.text_area :description, :class => "edit_page_session_input" %>
         </div>
         <div>
           <%= f.label :rating, "Review rating:" %>
-          <%= f.select :rating, [1, 2, 3, 4, 5], :class => "session_input" %>
+          <%= f.select :rating, [1,2,3,4,5], :class => "edit_page_session_input" %>
         </div>
         <div>
           <%= f.submit "Submit Review", :class => 'ui button session_btn' %>

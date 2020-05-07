@@ -147,3 +147,14 @@
     color: #fff !important;
     text-transform: uppercase !important;
 }
+
+/* REVIEW FORM STYLING */
+
+.ui.form select {
+    background-color: #222222;
+    color: #fff;
+}
+
+option { 
+    background-color: #222222; 
+}

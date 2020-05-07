@@ -1,41 +1,49 @@
-<h1>Edit your Profile</h1>
+<p class="center header">Edit your Profile</p>
 
-<% if @user.errors.any? %>
-    <div>
-        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-        <ul>
-            <% @user.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
+<div class="ui centered grid">
+    <div class="session_items_holder">
+        <% if @user.errors.any? %>
+            <div class="ui error message">
+                <div class="header">
+                    Your profile couldn't be saved:
+                </div>
+                <ul class="list">
+                    <% @user.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+        <div class="ui inverted large form">
+            <%= form_for @user do |f| %>
+                <div>
+                    <%= f.label :name %>
+                    <%= f.text_field :name, :class => "edit_page_session_input" %>
+                </div>
+                <div>
+                    <%= f.label :username %>
+                    <%= f.text_field :username, :class => "edit_page_session_input" %>
+                </div>
+                <div>
+                    <%= f.label :age %>
+                    <%= f.number_field :age, :class => "edit_page_session_input", placeholder: "Age" %>
+                </div>
+                <div>
+                    <%= f.label :location, "Location" %>
+                    <%= f.text_field :location, :class => "edit_page_session_input", placeholder: 'City, State' %>
+                </div>
+                <div>
+                    <%= f.label :bio %>
+                    <%= f.text_area :bio, :class => "edit_page_session_input", placeholder: 'Your bio goes here' %>
+                </div>
+                <div>
+                    <%= f.submit "Update Profile", :class => 'ui button session_btn' %>
+                </div>
             <% end %>
-        </ul>
+        </div>
+        <button class="ui button delete_profile_btn">
+            <%= link_to "Delete Account", delete_account_path(@user) %>
+        </button>
     </div>
-<% end %>
-
-<div class="ui inverted form">
-<%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
-  <br>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <br>
-  <br>
-  <%= f.label :bio %>
-  <%= f.text_area :bio %>
-  <br>
-  <br>
-  <%= f.label :age %>
-  <%= f.number_field :age %>
-  <br>
-  <br>
-  <%= f.label :location, "Location ('city, state')" %>
-  <%= f.text_field :location %>
-  <br>
-  <br>
-  <div class="ui submit button">
-  <%= f.submit %>
-<% end %>
 </div>
 

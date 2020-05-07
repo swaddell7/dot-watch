@@ -18,7 +18,7 @@
   <body>
         <% if logged_in? %>
           <div class="ui navbar inverted menu">
-          <%= link_to "DotWatch", root_path, class: "active item" %>
+          <%= link_to "DotWatch", root_path, class: "active_item item" %>
           <%= link_to "Films / TV Shows", screenplays_path, class: "item" %>
           <%= link_to "Reviews", reviews_path, class: "item" %>
           <%= link_to "All Users", users_path, class: "item" %>
@@ -30,5 +30,6 @@
         </div>    
         <% end %>
     <%= yield %>
+    <%= link_to '<button type="button" class="new_post_btn"><i class="plus icon"></i></button>'.html_safe, new_review_path %>
   </body>
 </html>

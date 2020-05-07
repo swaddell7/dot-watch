@@ -1,22 +1,22 @@
-<div class="login_elements_holder">
+<div class="session_elements_holder">
   <div class="logo_slogan_holder">
     <img class="ui centered image logo" src="assets/dotwatch-transparent.png">
     <p class="center slogan">Review Your Favorite Screenplay</p>
   </div>
   <div class="ui centered grid">
-    <div class="login_items_holder">
+    <div class="session_items_holder">
       <% if flash[:login_error]%>
         <div class="ui error message"><%= flash[:login_error] %></div>
       <% end %>
       <%= form_tag login_path, class: "ui large form" do %>
         <div>
           <div>
-            <%= text_field_tag :username, nil, class: "login_input", placeholder: "Username" %>
+            <%= text_field_tag :username, nil, class: "session_input", placeholder: "Username" %>
           </div>
           <div>
-            <%= password_field_tag :password, nil, class: "login_input", placeholder: "Password" %>
+            <%= password_field_tag :password, nil, class: "session_input", placeholder: "Password" %>
           </div>
-          <%= submit_tag "Login", class: "ui button login_btn" %>
+          <%= submit_tag "Login", class: "ui button session_btn" %>
         </div>
       <% end %>
       <div>

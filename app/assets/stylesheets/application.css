@@ -22,11 +22,6 @@
     text-align: center;
 }
 
-a {
-    color: #9E9E9E;
-}
-
-
 /* img {
     width: 20%;
     height: auto;
@@ -34,7 +29,7 @@ a {
 
 /* LOGIN STYLING */
 
-.login_elements_holder {
+.session_elements_holder {
     position: relative;
     top: 120px;
 }
@@ -52,22 +47,27 @@ a {
     margin-top: 28px;
 }
 
-.login_items_holder {
+.session_items_holder {
     width: 350px;
 }
 
-.login_input {
+.error_items_holder {
+    margin: 1em 0;
+    width: 350px;
+}
+
+.session_input {
     margin-bottom: 15px !important;
     height: 50px;
     background-color: #222222 !important;
     color: #fff !important;
 }
 
-.login_input:focus {
+.session_input:focus {
     border-color: #e30914 !important;
 }
 
-.login_btn {
+.session_btn {
     height: 45px;
     width: 260px;
     margin-top: 15px !important;

@@ -12,7 +12,7 @@
     </div>
 <% end %>
 
-
+<div class="ui inverted form">
 <%= form_for @user do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
@@ -34,6 +34,8 @@
   <%= f.text_field :location %>
   <br>
   <br>
+  <div class="ui submit button">
   <%= f.submit %>
 <% end %>
+</div>
 

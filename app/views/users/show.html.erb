@@ -1,28 +1,70 @@
-<% if current_user == @user %>
-    <h3><%= link_to "Edit Profile", edit_user_path %></h3>
-<% end %>
-<% if current_user == @user %>
-    <h3><%= link_to "Delete Account", delete_account_path(@user) %></h3>
-<% end %>
-
-<div class="user_profile_card">
-    <h1><%= @user.name %>'s Profile</h1>
-    <h2><%= "@#{@user.username}" %></h2>
-    <% if @user.age %>
-      <h3><%= @user.age %> years old</h3>
+<div class="ui centered link card">
+    <div class="content">
+        <div class="center header">
+            <%= @user.name %>'s Profile
+        </div>
+        <div class="center header">
+            <%= "@#{@user.username}" %>
+        </div>
+        <div class="center description">
+            <% if @user.age %>
+                <h4><%= @user.age %> years old</h4>
+            <% end %>
+            <h4><%= @user.location %></h4>
+            <p><%= @user.bio %></p>
+        </div>
+    </div>
+    <div class="extra content">
+        <i class="newspaper icon"></i>
+        <%= @user.reviews_count %> reviews
+    </div>
+    <div class="extra content">
+        <i class="hand peace icon"></i>
+        <%= @user.review_likes.count %> likes
+        <span class="right floated"><%= @user.user_badge %></span>
+    </div>
+    <% if current_user == @user %>
+        <div class="ui bottom attached red button">
+            <i class="add icon"></i>
+            <%= link_to "Edit Profile", edit_user_path(@user) %>
+        </div>
     <% end %>
-    <h4><%= @user.location %></h4>
-    <p><%= @user.bio %></p>
-    <p><%= @user.user_badge %> | <%= @user.review_likes.count %></p>
 </div>
 
-<h1>Reviews:</h1>
+<h2 class="center">Reviews:</h1>
 
-<% @user.reviews.each do |review| %>
-    <div class="user_profile_review_card">
-        <h4><%= link_to review.title, review_path(review) %></h4>
-        <p style="font-size: 12px;"><%= review.screenplay.title %></p>
-        <p><%= review.description %></p>
-        <p>Likes: <%= review.likes.count %></p>
+<% if @user.reviews.length > 0 %>
+    <div class="ui centered center link cards">
+        <% @user.reviews.each do |review| %>
+            <div class="card">
+                <div class="ui image">
+                    <%= link_to image_tag(review.screenplay.picture_url), review %>
+                </div>
+                <div class="content">
+                    <div class="header">
+                        <%= link_to review.title, review %>
+                    </div>
+                    <div class="description">
+                        <%= link_to review.screenplay.title, screenplay_path(review.screenplay) %>
+                    </div>
+                </div>
+                <div class="extra content">
+                    <% review.rating.to_i.times do %>
+                    <i class="star icon"></i>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
     </div>
+<% else %>
+  <div class="description">
+    You haven't added any reviews yet. <%= link_to "Create a review", new_review_path%>
+  </div>
 <% end %>
+
+<% if current_user == @user %>
+    <button class="ui right floated button">
+        <%= link_to "Delete Account", delete_account_path(@user) %>
+    </button>
+<% end %>
+

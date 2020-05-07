@@ -2,23 +2,23 @@
 
 <div class="ui centered link cards">
     <% @users.each do |user| %>
-        <div class="card">
+        <div class="card custom_card">
             <div class="content">
                 <div class="center header">
                     <%= link_to "#{user.name} | @#{user.username}", user %>
                 </div>
                 <div class="center description">
-                    <%= "#{user.shorter_bio}..." %>
+                    <p><%= "#{user.shorter_bio}..." %></p>
                 </div>
             </div>
             <div class="extra content">
                 <i class="newspaper icon"></i>
-                <%= user.reviews_count %> reviews
+                <p><%= user.reviews_count %> reviews</p>
             </div>
             <div class="extra content">
                 <i class="hand peace icon"></i>
-                    <%= user.review_likes.count %> likes
-                    <span class="right floated"><%= user.user_badge %></span>
+                    <p><%= user.review_likes.count %> likes</p>
+                    <p class="right floated"><%= user.user_badge %></p>
             </div>
         </div>
     <% end %>

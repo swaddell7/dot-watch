@@ -39,4 +39,18 @@ class Review < ApplicationRecord
       self.screenplay.title.gsub(/\s+/, "").downcase
     end
 
+    def short_desc
+      if self.description
+        short_desc = self.description.split(' ')
+        short_desc.take(7).join(' ')
+      end 
+    end
+
+    def short_title
+      if self.title
+        short_title = self.title.split(' ')
+        short_title.take(10).join(' ')
+      end
+    end
+
 end

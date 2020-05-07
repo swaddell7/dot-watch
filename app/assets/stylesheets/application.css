@@ -22,11 +22,6 @@
     text-align: center;
 }
 
-/* img {
-    width: 20%;
-    height: auto;
-} */
-
 /* LOGIN STYLING */
 
 .session_elements_holder {
@@ -123,19 +118,65 @@
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-.screenplay_index_desc_font {
-  font-size: 85%;
+/* USER PROFILE PAGE STYLING */
+
+.edit_page_session_input {
+    margin-top: 5px !important;
+    margin-bottom: 15px !important;
+    height: 50px;
+    background-color: #222222 !important;
+    color: #fff !important;
 }
 
-.div_size_screenplay_index {
-  width: 230px;
-  height: 345px
+.edit_page_session_input:focus {
+    border-color: #e30914 !important;
 }
 
-.screenplay_index_img_size {
-  display: block;
-  max-width:230px;
-  max-height:95px;
-  width: auto;
-  height: auto;
+.header {
+    font-size: 2rem;
+    margin-top: 28px;
+}
+
+.delete_profile_btn {
+    height: 45px;
+    width: 260px;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+    border-radius: 100px !important;
+    background-color: gray !important;
+    color: #fff !important;
+    text-transform: uppercase !important;
+}
+
+/* REVIEW FORM STYLING */
+
+.ui.form select {
+    background-color: #222222;
+    color: #fff;
+}
+
+option { 
+    background-color: #222222; 
+    
+/* CARD STYLING */
+
+.custom_card {
+    background-color: #222222 !important;
+    box-shadow: none !important;
+}
+
+.custom_card a, i {
+    color: #fff;
+}
+
+.custom_card p {
+    display: inline;
+    color: #fff;
+}
+
+.custom_card img {
+    display: block !important;
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
 }

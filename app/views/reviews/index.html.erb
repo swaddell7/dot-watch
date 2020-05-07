@@ -1,9 +1,43 @@
-<h1 class="center">Reviews</h1>
+<h2 class="center">All Reviews</h2>
 
-<% @reviews.each do |review| %>
-  <h3><%= link_to review.title, review_path(review) %></h3>
-  <p><%= review.created_at_to_date %></p>
-  <p><%= review.description%></p>
-  <p>Rating: <%= review.rating.to_i %> / 5</p>
-  <p>Likes: <%= review.likes.count %></p>
-<% end %>
+<div class="ui centered link cards">
+  <% @reviews.each do |review| %>
+    <div class="ui card custom_card">
+      <div class="content">
+        <div class="header"><%= link_to review.short_title..., review_path(review) %></div>
+        <div class="meta"><p><%= review.get_screenplay %></p></div>
+        <div class="meta"><p><%= review.created_at_to_date %></p></div>
+        <div class="description">
+         <p><%= review.short_desc ... %></p>
+        </div>
+      </div>
+      <div class="extra content">
+        <i class="thumbs up outline icon"></i>
+        <%= review.likes.count %>
+        <div class="ui right floated content">
+          <% if review.rating == 1 %>
+            <i class="star icon"></i>
+          <% elsif review.rating == 2 %>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+          <% elsif review.rating == 3 %>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+         <% elsif review.rating == 4 %>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+          <% elsif review.rating == 5 %>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

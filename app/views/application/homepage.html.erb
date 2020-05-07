@@ -39,7 +39,7 @@
         <%= link_to @popular_review.title, @popular_review %>
       </div>
       <div class="description">
-        <%= link_to "Screenplay: #{@popular_review.screenplay.title}", screenplay_path(@popular_review.screenplay) %>
+        <%= link_to "Film / TV Show: #{@popular_review.screenplay.title}", screenplay_path(@popular_review.screenplay) %>
       </div>
     </div>
     <div class="extra content">
@@ -49,7 +49,7 @@
   </div>
 <% end %>
 
-<h2 class="center">Top-rated screenplays today:</h2>
+<h2 class="center">Top-rated Films / TV shows today:</h2>
 
 <div class="ui centered center link cards">
   <% @top_three.each do |screenplay, av_rating| %>

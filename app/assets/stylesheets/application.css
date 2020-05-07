@@ -181,3 +181,7 @@ option {
     height: 200px !important;
     object-fit: cover !important;
 }
+
+.custom_segment {
+    background-color: #222222 !important;
+}

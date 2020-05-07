@@ -4,46 +4,46 @@
   </div>
 <div class="ui middle aligned center aligned grid" >
   <div class="four wide column">
-
-    <% if @user.errors.any? %>
-    <div class="ui form">
-        <div class="ui error message">
-            <div class="header"><%= pluralize(@user.errors.count, "error") %> prohibited sign up:</div>
-                <ul class="list">
-                    <% @user.errors.full_messages.each do |msg| %>
-                        <li><%= msg %></li>
-                    <% end %>
-                </ul>
-            </div>
+  <% if @user.errors.any? %>
+      <div class="ui error message">
+        <div class="header"><%= pluralize(@user.errors.count, "Error") %> prohibited your sign up:</div>
+          <ul class="list">
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
         </div>
-    </div>
+      </div>
     <% end %>
+  </div>
+</div>
+<div class="ui middle aligned center aligned grid" >
+  <div class="four wide column">
+    
 
     <div class="ui large form">
     <%= form_for @user do |f| %>
-      <div class="ui stacked segment">
+      <div class="ui stacked segment black">
         <div class="field">
-          <%= f.label :name %>
+          <%= f.label :name, "Name" %>
           <%= f.text_field :name %>
         </div>
         <div class="field">
-            <%= f.label :username %>
+            <%= f.label :username, "Username" %>
             <%= f.text_field :username %>
         </div>
         <div class="field">
-            <%= f.label :password %>
+            <%= f.label :password, "Password" %>
             <%= f.password_field :password %>
         </div>
         <div class="field">
             <%= f.label :password_confirmation, "Confirm Password" %>
             <%= f.password_field :password_confirmation %>
         </div>
-        <div class="ui fluid large red submit button">
-            <%= f.submit %>
-        </div>
+            <%= f.submit 'Sign Up!', :class => 'ui fluid large red submit button'%>
       </div>
     <% end %>
-    <div class="ui message">
+    <div class="ui message inverted">
       <h5>Signed up before? <%= link_to "Log In", login_path %></h5>
     </div>
   </div>

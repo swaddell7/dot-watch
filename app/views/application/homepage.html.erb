@@ -1,17 +1,30 @@
-<h1>Welcome back, <%= @user.name %>.</h1>
+<h1 class="center">Welcome back, <%= @user.name %>.</h1>
 
-<h2>Your reviews:</h2>
+<h2 class="center">Your reviews:</h2>
 
 <% if @user.reviews.length > 0 %>
+  <div class="ui center link cards">
   <% @user.reviews.each do |review| %>
-      <h3>Review: <%= link_to review.title, review %></h3>
+  <div class="card">
+    <div class="ui image">
       <%= link_to image_tag(review.screenplay.picture_url), screenplay_path(review.screenplay) %>
-      <p>Screenplay: <%= link_to review.screenplay.title, screenplay_path(review.screenplay) %></p>
-      <p>Rating: <%= review.rating.to_i %> / 5</p>
+    </div>
+    <div class="content">
+      <div class="header">Review: <%= link_to review.title, review %></div>
+      <div class="description">
+        Screenplay: <%= link_to review.screenplay.title, screenplay_path(review.screenplay) %>
+      </div>
+    </div>
+    <div class="extra content">
+    <span>Rating: <%= review.rating.to_i %> / 5</span>
+  </div>
+  </div>
   <% end %>
+  </div>
 <% else %>
   <p>You haven't added any reviews yet. <%= link_to "Create a review", new_review_path%></p>
 <% end %>
+
 
 <br>
 <% if @popular_review %>

@@ -1,50 +1,41 @@
-<h1 class="center">Sign up!</h1>
-  <div class = "ui middle aligned center aligned">
-    <img src="assets/dotwatch-transparent.png">
+<div class="session_elements_holder">
+  <div class="logo_slogan_holder">
+    <img class="ui centered image logo" src="assets/dotwatch-transparent.png">
+    <p class="center slogan">Review Your Favorite Screenplay</p>
   </div>
-<div class="ui middle aligned center aligned grid" >
-  <div class="four wide column">
-  <% if @user.errors.any? %>
-      <div class="ui error message">
-        <div class="header"><%= pluralize(@user.errors.count, "Error") %> prohibited your sign up:</div>
+  <div class="ui centered grid">
+    <div class="session_items_holder">
+
+      <% if @user.errors.any? %>
+        <div class="ui error message">
+          <div class="header"><%= pluralize(@user.errors.count, "Error") %> prohibited your sign up:</div>
           <ul class="list">
             <% @user.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
             <% end %>
           </ul>
         </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-<div class="ui middle aligned center aligned grid" >
-  <div class="four wide column">
-    
+      <% end %>
 
-    <div class="ui large form">
-    <%= form_for @user do |f| %>
-      <div class="ui stacked segment black">
-        <div class="field">
-          <%= f.label :name, "Name" %>
-          <%= f.text_field :name %>
+      <div class="ui large form">
+        <%= form_for @user do |f| %>
+            <div>
+              <%= f.text_field :name, class: "session_input", placeholder: "Full Name" %>
+            </div>
+            <div>
+                <%= f.text_field :username, class: "session_input", placeholder: "Username" %>
+            </div>
+            <div>
+                <%= f.password_field :password, class: "session_input", placeholder: "Password" %>
+            </div>
+            <div>
+                <%= f.password_field :password_confirmation, class: "session_input", placeholder: "Confirm Password" %>
+            </div>
+                <%= f.submit 'Sign Up!', :class => 'ui button session_btn'%>
+        <% end %>
+        <div>
+          <h5>Signed up before? <%= link_to "Log In", login_path %></h5>
         </div>
-        <div class="field">
-            <%= f.label :username, "Username" %>
-            <%= f.text_field :username %>
-        </div>
-        <div class="field">
-            <%= f.label :password, "Password" %>
-            <%= f.password_field :password %>
-        </div>
-        <div class="field">
-            <%= f.label :password_confirmation, "Confirm Password" %>
-            <%= f.password_field :password_confirmation %>
-        </div>
-            <%= f.submit 'Sign Up!', :class => 'ui fluid large red submit button'%>
       </div>
-    <% end %>
-    <div class="ui message inverted">
-      <h5>Signed up before? <%= link_to "Log In", login_path %></h5>
-    </div>
   </div>
 </div>

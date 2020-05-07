@@ -1,13 +1,47 @@
 <h1 class="center">Screenplays</h1>
 
-<%= form_tag screenplays_path do %>
-  <%= collection_select :screenplay, :genre_ids, Genre.all, :id, :name, :prompt => true %>
-  <br>
-  <br>
-  <%= submit_tag "Filter" %>
-<% end %>
+<script> 
+  $(document).ready(function(value){
+    console.log("hi")
+    console.log(value)
+    $('.ui.dropdown') .dropdown({
+      onAdd: function(value) {
+        console.log(value)
+        }
+      });
+  });
+</script>
+      
+  <form id="test_form" action="/screenplays" data-remote="true" method="get">
+    <select name="genres[]" id="genres" class="ui fluid search dropdown" multiple="">
+      <option value="1">Action/Adventure</option>
+      <option value="2">Anthology</option>
+    </select>
+ </form>
 
-<%= link_to "Reset filter", screenplays_path %> 
+<script type="text/javascript">
+  $(function(){
+    $('#genres').dropdown({
+      onAdd: function(value) {
+        console.log(value)
+        $("#test_form").submit()
+        }
+      }
+    )
+  })
+</script>
+
+<br>
+<br>
+<br>
+<%= form_tag screenplays_path do %>
+    <%= collection_select :screenplay, :genre_ids, Genre.all, :id, :name, :prompt => true %>
+    <br>
+    <br>
+    <%= submit_tag "Filter" %>
+  <% end %>
+  <%= link_to "Reset filter", screenplays_path %> 
+
 
 <h2>Films</h2>
 

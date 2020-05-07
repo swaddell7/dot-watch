@@ -2,7 +2,7 @@
 
 <div class="ui centered link cards">
   <% @reviews.each do |review| %>
-    <div class="ui card">
+    <div class="ui link card">
       <div class="content">
         <div class="header"><%= link_to review.short_title..., review_path(review) %></div>
         <div class="meta"><%= review.get_screenplay %></div>
@@ -14,27 +14,29 @@
       <div class="extra content">
         <i class="thumbs up outline icon"></i>
         <%= review.likes.count %>
-        <% if review.rating == 1 %>
-          <i class="star icon"></i>
-        <% elsif review.rating == 2 %>
-          <i class="star icon"></i>
-          <i class="star icon"></i>
-        <% elsif review.rating == 3 %>
-          <i class="star icon"></i>
-          <i class="star icon"></i>
-          <i class="star icon"></i>
-        <% elsif review.rating == 4 %>
-          <i class="star icon"></i>
-          <i class="star icon"></i>
-          <i class="star icon"></i>
-          <i class="star icon"></i>
-        <% elsif review.rating == 5 %>
-          <i class="star icon"></i>
-          <i class="star icon"></i>
-          <i class="star icon"></i>
-          <i class="star icon"></i>
-          <i class="star icon"></i>
-        <% end %>
+        <div class="ui right floated content">
+          <% if review.rating == 1 %>
+            <i class="star icon"></i>
+          <% elsif review.rating == 2 %>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+          <% elsif review.rating == 3 %>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+         <% elsif review.rating == 4 %>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+          <% elsif review.rating == 5 %>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+            <i class="star icon"></i>
+          <% end %>
+        </div>
       </div>
     </div>
   <% end %>

@@ -5,23 +5,69 @@
   <br>
 <% end %>
 
-<h1><%= @review.title %></h1>
+<div class="ui centered grid">
+<div class="six wide column">
+<div class="ui centered card fluid">
+  <div class="content">
+    <div class="center header">
+      <h1><%= @review.title %></h1>
+    </div>
+    <div class="center meta">
+      <p>Review by: <%= link_to @review.user.name, user_path(@review.user) %></p>
+    </div>
+    <div class="center meta">
+      <p>Screenplay: <%= link_to @review.screenplay.title, screenplay_path(@review.screenplay) %></p><br>
+    </div>
+    <div class="center description">
+      <p><%= @review.description %></p><br>
+    </div>
+    <div class="center description">
+      <% if @review.rating == 1 %>
+        <i class="star icon"></i>
+      <% elsif @review.rating == 2 %>
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+      <% elsif @review.rating == 3 %>
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+      <% elsif @review.rating == 4 %>
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+      <% elsif @review.rating == 5 %>
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+      <% end %>
+    </div>
+    <div class="ui labeled button center" tabindex="0">
+      <%= button_to "Like", like_path(@review), method: :put, class: "ui red button center" %>
+        <a class="ui basic red left pointing label center">
+          <%= @review.likes.count %>
+        </a>
+      <% if flash[:like_error] %>
+        <div class="ui left pointing red basic label">
+          <%= flash[:like_error] %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 
-<text>Review by: <%= @review.user.name %></text>
-<br>
-<text>Screenplay: <%= @review.screenplay.title %></text>
-<br>
-<p><%= @review.description %>
-<br>
-<br>
-<text>Rating: <%= @review.rating %> Stars</text>
-<br>
-<br>
-<%= flash[:like_error] %>
-<text>Likes: <%= @review.likes.count %></text>
-<%= button_to 'Give a Like!', like_path(@review), method: :put %>
-<br>
-<br>
+
+
+
+
+
+
+
+
 <% if current_user == @review.user %>
   <%= link_to "Edit Review", edit_review_path(@review) %>
 <% end %>

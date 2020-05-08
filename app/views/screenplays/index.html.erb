@@ -1,23 +1,40 @@
-<h1 class="center">Films / TV Shows</h1>
+<br>
+<div class="ui centered grid">
+  <h1 class="centered">Films / TV Shows</h1>
+</div>
 <br>
 <br>
 <br>
 <div class="ui centered grid">
   <%= form_tag screenplays_path, class: "ui form" do %>
-      <%= collection_select :screenplay, :genre_ids, Genre.all, :id, :name, {prompt: "Select a genre"}, {class: "ui dropdown"} %>
+      <%= collection_select :screenplay, :genre_ids, Genre.all, :id, :name, {prompt: "Select a genre"}, {class: "ui dropdown general_button_red_h"} %>
       <br>
       <br>
-      <%= submit_tag("Filter", class: "ui secondary button")%>
-      <%= link_to "Reset filter", screenplays_path, class: "ui secondary button" %> 
+      <%= submit_tag("Filter", class: "ui secondary button general_button_red_h")%>
+      <%= link_to "Reset filter", screenplays_path, class: "ui secondary button general_button_red_h" %> 
     <% end %>
+    <br>
 </div>
+<br>
+<br>
+<br>
+<div class="ui centered grid">
+  <% if flash[:filter_message] %>
+    <div class="ui compact message custom_card filter_by_coloring">
+      <strong><p>Filtered by:</p></strong>
+      <br>
+      <p><%= flash[:filter_message]%></p>
+    </div>
+  <% end %>
+</div>
+
 <br>
 <br>
 <br>
 <br>
 <div class="ui centered center link cards">
   <% @screenplays.each do |screenplay| %>
-    <div class="card custom_card">
+    <div class="card custom_card general_button_red_h">
       <div class="ui image div_size_screenplay_index centered">
         <%= link_to image_tag(screenplay.picture_url), screenplay, :class => "screenplay_index_img_size" %>
       </div>
@@ -39,18 +56,21 @@
             <p class="screenplay_index_desc_font"><%= screenplay.episodes%></p>
         </div>
       </div>
+       <h4 class="ui horizontal divider white">
+              
+            </h4>
       <div class="extra content">
         <div class="ui segment custom_segment">
           <div class="ui two column very relaxed grid">
             <div class="column">
-              <strong><p>Genre:</p></strong><p><%= screenplay.get_genre(screenplay) %></p>
+              <strong><p>Genre:</p></strong><br><p><%= screenplay.get_genre(screenplay) %></p>
             </div>
             <div class="column">
-              <strong><p>Category:</p></strong><p><%= screenplay.category %></p>
+              <strong><p>Category:</p></strong><br><p><%= screenplay.category %></p>
             </div>
           </div>
           <div class="ui vertical divider">
-            <p>&</p>
+            <text style="color: white">&</text>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 <div class="ui centered link cards">
   <% @reviews.each do |review| %>
-    <div class="ui card custom_card">
+    <div class="ui card custom_card general_button_red_h">
       <div class="content">
         <div class="header"><%= link_to review.short_title..., review_path(review) %></div>
         <div class="meta"><p><%= review.get_screenplay %></p></div>

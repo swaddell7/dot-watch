@@ -7,7 +7,7 @@
 
 <div class="ui centered grid">
 <div class="six wide column">
-<div class="ui centered card custom_card">
+<div class="ui centered fluid card">
   <div class="content">
     <div class="center header">
       <h1><%= @review.title %></h1>
@@ -56,8 +56,12 @@
       <% end %>
     </div>
   </div>
-</div>
-</div>
+        <div class="ui bottom attached red button">
+            <i class="add icon"></i>
+            <%= link_to "Edit Review", edit_review_path(@review) %>
+        </div>
+    </div>
+  </div>
 </div>
 
 

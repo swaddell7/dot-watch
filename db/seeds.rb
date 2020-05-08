@@ -112,9 +112,9 @@ end
   Review.create!(
     user_id: User.all.ids.sample, 
     screenplay_id: Screenplay.all.ids.sample, 
-    title: five_review_titles.sample, 
-    description: four_review_descriptions.sample, 
-    rating: 5,
+    title: one_review_titles.sample, 
+    description: one_review_descriptions.sample, 
+    rating: 1,
     created_at: Time.at(rand * Time.now.to_i))
   end
 

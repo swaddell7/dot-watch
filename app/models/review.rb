@@ -44,14 +44,14 @@ class Review < ApplicationRecord
     def short_desc
       if self.description
         short_desc = self.description.split(' ')
-        short_desc.take(7).join(' ')
+        short_desc.take(12).join(' ') + "..."
       end 
     end
 
     def short_title
       if self.title
         short_title = self.title.split(' ')
-        short_title.take(10).join(' ') + "..."
+        short_title.take(10).join(' ')
       end
     end
 

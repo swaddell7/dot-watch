@@ -35,11 +35,11 @@ class User < ApplicationRecord
     # end
 
     def user_badge
-      if self.review_likes.count < 4
+      if self.review_likes.count <= 9
         "Newbie"
-      elsif self.review_likes.count > 4 && self.review_likes.count < 9 
+      elsif self.review_likes.count > 9 && self.review_likes.count <= 19
         "Film Critic"
-      elsif self.review_likes.count > 9 
+      elsif self.review_likes.count > 19
         "Uber Fan Girl Magnet"
       end 
     end 

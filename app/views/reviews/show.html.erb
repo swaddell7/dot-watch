@@ -20,27 +20,9 @@
       <p><%= @review.description %></p><br><br>
     </div>
     <div class="center description">
-      <% if @review.rating == 1 %>
-        <i class="star icon"></i>
-      <% elsif @review.rating == 2 %>
-        <i class="star icon"></i>
-        <i class="star icon"></i>
-      <% elsif @review.rating == 3 %>
-        <i class="star icon"></i>
-        <i class="star icon"></i>
-        <i class="star icon"></i>
-      <% elsif @review.rating == 4 %>
-        <i class="star icon"></i>
-        <i class="star icon"></i>
-        <i class="star icon"></i>
-        <i class="star icon"></i>
-      <% elsif @review.rating == 5 %>
-        <i class="star icon"></i>
-        <i class="star icon"></i>
-        <i class="star icon"></i>
-        <i class="star icon"></i>
-        <i class="star icon"></i>
-      <% end %>
+      <% @review.rating.to_i.times do %>
+            <i class="star icon star_icon"></i>
+            <% end %>
     </div>
     <div class="ui labeled button left floated" tabindex="0">
       <%= button_to "Like", like_path(@review), method: :put, class: "ui red button center" %>

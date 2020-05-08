@@ -179,6 +179,10 @@ option {
     color: #fff;
 }
 
+.star_icon {
+    color: #e30914 !important;
+}
+
 .custom_card p, h4, h1 {
     display: inline;
     color: #fff !important;

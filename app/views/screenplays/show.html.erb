@@ -52,64 +52,32 @@
   </div>
 <br>
 <br>
-<div class="ui centered grid">
-  <div class="six wide column">
-    <% @screenplay.reviews.each do |review| %>
-      <div class="ui centered card custom_card">
-        <div class="content">
-          <div class="center header">
-            <h1><%= review.short_title %></h1>
-          </div>
-          <div class="center meta">
-            <p>Review by: <%= link_to review.user.name, user_path(review.user) %></p>
-          </div>
-          <div class="center meta">
-          <p>Film / TV Show: <%= link_to review.screenplay.title, screenplay_path(review.screenplay) %></p><br>
-          </div>
-          <div class="center description">
-            <p><%= review.description %></p><br>
-          </div>
-          <div class="center description">
-            <% if review.rating == 1 %>
-              <i class="star icon"></i>
-            <% elsif review.rating == 2 %>
-              <i class="star icon"></i>
-              <i class="star icon"></i>
-            <% elsif review.rating == 3 %>
-              <i class="star icon"></i>
-              <i class="star icon"></i>
-              <i class="star icon"></i>
-            <% elsif review.rating == 4 %>
-              <i class="star icon"></i>
-              <i class="star icon"></i>
-              <i class="star icon"></i>
-              <i class="star icon"></i>
-            <% elsif review.rating == 5 %>
-              <i class="star icon"></i>
-              <i class="star icon"></i>
-              <i class="star icon"></i>
-              <i class="star icon"></i>
-              <i class="star icon"></i>
-            <% end %>
-          </div>
-          <div class="ui labeled button center" tabindex="0">
-            <%= button_to "Like", like_path(review), method: :put, class: "ui red button center" %>
-              <a class="ui basic red left pointing label center">
-                <%= review.likes.count %>
-              </a>
-            <% if flash[:like_error] %>
-            <div class="ui left pointing red basic label">
-              <%= flash[:like_error] %>
-            </div>
-            <% end %>
+
+<div class="ui centered link cards">
+  <% @screenplay.reviews.each do |review| %>
+    <a class="card custom_card" href="<%= review_path(review) %>">
+      <div class="content">
+        <div class="center header"><p><%= review.short_title... %></p></div>
+        <div class="center meta"><p><%= review.get_screenplay %></p></div>
+        <div class="center meta"><p><%= review.created_at_to_date %></p></div>
+        <div class="center description">
+         <p><%= review.short_desc %></p>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+      <div class="extra content">
+        <i class="thumbs up outline icon"></i>
+        <p><%= review.likes.count %></p>
+        <div class="ui right floated content">
+          <% review.rating.to_i.times do %>
+          <i class="star icon"></i>
+        <% end %>
+        </div>
+      </div>
+    </a>
   <% end %>
-<br>
-<br>
+</div>
+
+
 <div class="ui horizontal divider">
     <h2 style="color: white">Review <%= @screenplay.title %>:</h2>
   </div>

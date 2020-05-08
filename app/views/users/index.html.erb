@@ -1,11 +1,15 @@
-<h2 class="center">All Critics</h2>
-
+<br>
+<div class="ui horizontal divider">
+  <h2 style="color: white">All Critics</h2>
+</div>
+<br>
+<br>
 <div class="ui centered link cards">
     <% @users.each do |user| %>
-        <div class="card custom_card general_button_red_h">
+        <a class="card custom_card" href="<%= user_path(user) %>%">
             <div class="content">
                 <div class="center header">
-                    <%= link_to "#{user.name} | @#{user.username}", user %>
+                    <p><%= "#{user.name} | @#{user.username}" %></p>
                 </div>
                 <div class="center description">
                     <p><%= "#{user.shorter_bio}..." %></p>
@@ -20,6 +24,6 @@
                 <p><%= user.review_likes.count %></p>
                 <p class="right floated"><%= user.user_badge %></p>
             </div>
-        </div>
+        </a>
     <% end %>
 </div>

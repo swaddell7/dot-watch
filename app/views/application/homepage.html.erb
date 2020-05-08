@@ -1,4 +1,6 @@
-<h2 class="center">Your reviews:</h2>
+<div class="ui horizontal divider">
+    <h1 style="color: white">Your Reviews</h1>
+</div>
 
 <% if @user.reviews.length > 0 %>
   <div class="ui centered center link cards">
@@ -16,9 +18,15 @@
           </div>
         </div>
         <div class="extra content">
-        <% review.rating.to_i.times do %>
-          <i class="star icon"></i>
-        <% end %>
+          <div class="ui left floated content">
+            <i class="thumbs up outline icon"></i>
+            <p><%= review.likes.count %></p>
+          </div>
+          <div class="ui right floated content">
+            <% review.rating.to_i.times do %>
+            <i class="star icon"></i>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>
@@ -30,7 +38,9 @@
 <% end %>
 
 <% if @popular_review %>
-  <h2 class="center">Your most popular review:</h2>
+  <div class="ui horizontal divider">
+      <h1 style="color: white">Most Popular Review</h1>
+  </div>
   <div class="ui card centered custom_card">
       <div class="center content">
         <div class="header"><%= link_to @popular_review.short_title..., @popular_review %></div>
@@ -52,8 +62,9 @@
     </div>
 <% end %>
 
-<h2 class="center">Top-rated Films / TV shows today:</h2>
-
+<div class="ui horizontal divider">
+  <h1 style="color: white">Top-rated Films / TV shows today</h1>
+</div>
 <div class="ui centered center link cards">
   <% @top_three.each do |screenplay, av_rating| %>
     <div class="card custom_card">

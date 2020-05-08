@@ -223,7 +223,6 @@ option {
 
 .general_button_red_h:hover {
   border: 1px solid #e30914 !important;
-  transform: scale(1.2, 1.2);
   cursor: pointer;
 }
 

@@ -3,7 +3,7 @@
     <% if review.errors.any? %>
       <div class="ui error message">
         <div class="header">
-          Your review couldn't be saved:
+          <p>Your review couldn't be saved:</p>
         </div>
         <ul class="list">
           <% @review.errors.full_messages.each do |msg| %>

@@ -20,12 +20,16 @@
         </div>
     </div>
     <div class="extra content">
+    <div class="left floated">
         <i class="newspaper icon"></i>
         <p><%= @user.reviews_count %> reviews</p>
     </div>
+    </div>
     <div class="extra content">
+    <div class="left floated">
         <i class="thumbs up outline icon"></i>
         <p><%= @user.review_likes.count %></p>
+    </div>
         <p class="right floated"><%= @user.user_badge %></p>
     </div>
     <% if current_user == @user %>
@@ -40,6 +44,7 @@
 <br>
 <br>
 
+<% if @user.reviews.length > 0 %>
 <div class="ui horizontal divider">
   <% if current_user == @user %>
     <h1 style="color: white">Your Reviews</h1>
@@ -47,6 +52,7 @@
     <h1 style="color: white"><%= @user.username%> Reviews</h1>
   <% end %>
 </div>
+<% end %>
 
 
 <% if @user.reviews.length > 0 %>

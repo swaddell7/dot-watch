@@ -18,7 +18,7 @@ genres.each do |genre|
   Genre.create(name: genre)
 end
 
-10.times do
+15.times do
   User.create!(name: Faker::Name.name, username: Faker::Name.name, password: "password", password_confirmation: "password", bio: Faker::Quote.yoda, age: rand(99))
 end
 
@@ -51,14 +51,104 @@ Screenplay.create!(category: "TV Show", picture_url: "https://www.gstatic.com/tv
 Screenplay.create!(category: "TV Show", picture_url: "https://www.gstatic.com/tv/thumb/tvbanners/16944746/p16944746_b_v8_ac.jpg", title: "Black Mirror", description: "Featuring stand-alone dramas -- sharp, suspenseful, satirical tales that explore techno-paranoia -- 'Black Mirror' is a contemporary reworking of 'The Twilight Zone' with stories that tap into the collective unease about the modern world. Each story features its own cast of unique characters, including stars like Bryce Dallas Howard ('The Help'), Alice Eve, Gugu Mbatha-Raw, Tom Cullen and Jerome Flynn ('Game of Thrones'). Joe Wright, Dan Trachtenberg, and James Watkins are among the featured directors.", num_seasons: 5, num_episodes: 22, runtime: 41)
 Screenplay.create!(category: "TV Show", picture_url: "https://www.gstatic.com/tv/thumb/tvbanners/17212373/p17212373_b_v8_ab.jpg", title: "Jeopardy", description: "'Jeopardy!'' is a classic game show -- with a twist. The answers are given first, and the contestants supply the questions. Three contestants, including the previous show's champion, compete in six categories and in three rounds (with each round's 'answers' being worth more prize money). In the third round, 'Final Jeopardy,'' the contestants can name their own jackpot -- as long as it's within the amount of money they've already earned. If a player finishes the second round with zero dollars, they are eliminated from 'Final Jeopardy.' The first version of 'Jeopardy!,' which aired from 1964 to 1975 on NBC, was hosted by Art Fleming. Alex Trebek is the current host; he began with the program in 1984 (at the start of its syndicated run).", num_seasons: 35, num_episodes: 8000, runtime: 24)
 
+five_review_titles = ["Wow, this is truly incredible!", "Pure perfection", "Oh HELLO! Good times are a comin'", "DOPE MAN, DOPE!", "Something really special"]
+four_review_titles = ["Definitely well worth watching", "Really nice", "HOLLER! Beatiful characters alert!", "I loved this", "Really great watch"]
+three_review_titles = ["Some flaws, but overall decent", "It passes the COVID time fine", "I quite enjoyed this", "It's OK", "Meh, not bad"]
+two_review_titles = ["Watch if you have nothing better", "Scraping the barrel", "Characters are dull", "I fell asleep", "My nan acts better"]
+one_review_titles = ["Don't waste your time", "Paint drying was better", "Would rather be sick in a ditch", "Talent? This is talent?", "JUST NOPE!"]
 
+five_review_descriptions = ["Sometimes, you come across something that just makes you say WOW. This was one of those times.", "Pure perfection from start to finish. The camera angles, the plot, the characters, all of it was beautiful.", "Good times indeed yall. I would heartily recommend you watch this, YOU WILL NOT REGRET IT!", "Just DOPE. Like, really really good. Nice features, interesting plot-twists, everything you need really.", "Something really special. Perfect for my birthday surprise night in. I will be rewatching again and again!"]
+four_review_descriptions = ["Even with its subdued tone, this is hugely engaging, gently stirring quirky humour into the story and characters.", "Tells the story simply, focussing on the details of human existence and reaching a very good ending", "I thought this was great. It was a bit long for me, but the story was incredible.", "Really great stuff. Pacy, zippy and great development and introspection", "Just what I wanted to watch on my wedding anniversary. Hubs loved it too!"]
+three_review_descriptions = ["This was a fine watch. But just that. Fine. Not great, not bad. Just fine.", "There was a lot to like about this, but there was also a lot to dislike, so I'm going in the middle here.", "In fairness, I haven't even watched this yet LOL. I just wanted to get my critic status up a bit, so here we are. It's a 3 from me.", "It's OK. The characters are OK, the plot is OK, my life is OK. Who can complain?", "Hey, it could be a lot worse. Stick it on, have some tacos, maybe watch some minor league baseball afterwards. It's cool."]
+two_review_descriptions = ["You've really got to love this type of thing to watch this. Not the best in its genre.", "Barrel officially scraped. The cream of the crop has all gone to Hollywood, so we're stuck here with these lame actors. LAME!!!", "Characters are dull, plot is laborious and it's not great. But it's not the worst thing out there, that's Breaking Bad.", "I fell asleep because it was so bad. The main actors are nice looking though, so I've given an extra star for that.", "I met an alien whilst watching this. He'd just come to earth from the planet Zerg, over 1,000 light years away. And we watched this, and he decided to go back. It was that bad. It was sad."]
+one_review_descriptions = ["Urgh. Absolutely terrible. I only made it through about 5 minutes and then head to turn it off. Utter shite.", "After a while I stuck my head in a blender, which turned out to be less bad for my brain than watching this utter nonsense.", "I screamed constantly as I watched this. My neighbour came out to see what was the matter, took one look at the screen and was violently sick.", "I can't comprehend why somebody would waste their life putting this together. It's like, DUDE COME ON", "I didn't even watch this. But my neighbour Nance said it was terrible, and I always listen to what Nance says."]
 
+# reviews = [ 
+#     Review.create!(
+#       user_id: User.all.ids.sample, 
+#       screenplay_id: Screenplay.all.ids.sample, 
+#       title: five_review_titles.sample, 
+#       description: four_review_descriptions.sample, 
+#       rating: 5),
+#     Review.create!(
+#       user_id: User.all.ids.sample, 
+#       screenplay_id: Screenplay.all.ids.sample, 
+#       title: four_review_titles.sample, 
+#       description: four_review_descriptions.sample, 
+#       rating: 4),
+#     Review.create!(
+#       user_id: User.all.ids.sample, 
+#       screenplay_id: Screenplay.all.ids.sample, 
+#       title: three_review_titles.sample, 
+#       description: three_review_descriptions.sample, 
+#       rating: 3),
+#     Review.create!(user_id: User.all.ids.sample, 
+#       screenplay_id: Screenplay.all.ids.sample, 
+#       title: two_review_titles.sample, 
+#       description: two_review_descriptions.sample, 
+#       rating: 2),
+#     Review.create!(user_id: User.all.ids.sample, 
+#       screenplay_id: Screenplay.all.ids.sample, 
+#       title: one_review_titles.sample, 
+#       description: one_review_descriptions.sample, 
+#       rating: 1)
+#   ]
 
-20.times do
-  Review.create!(user_id: User.all.ids.sample, screenplay_id: Screenplay.all.ids.sample, title: Faker::Hipster.sentence, description: Faker::Hipster.paragraph, rating: rand(6))
+# 50.times do
+#   reviews.sample
+# end
+
+10.times do
+Review.create!(
+  user_id: User.all.ids.sample, 
+  screenplay_id: Screenplay.all.ids.sample, 
+  title: five_review_titles.sample, 
+  description: five_review_descriptions.sample, 
+  rating: 5,
+  created_at: Time.at(rand * Time.now.to_i))
 end
 
-20.times do
+10.times do
+  Review.create!(
+    user_id: User.all.ids.sample, 
+    screenplay_id: Screenplay.all.ids.sample, 
+    title: four_review_titles.sample, 
+    description: four_review_descriptions.sample, 
+    rating: 4,
+    created_at: Time.at(rand * Time.now.to_i))
+  end
+
+10.times do
+  Review.create!(
+    user_id: User.all.ids.sample, 
+    screenplay_id: Screenplay.all.ids.sample, 
+    title: three_review_titles.sample, 
+    description: three_review_descriptions.sample, 
+    rating: 3,
+    created_at: Time.at(rand * Time.now.to_i))
+  end
+
+10.times do
+  Review.create!(
+    user_id: User.all.ids.sample, 
+    screenplay_id: Screenplay.all.ids.sample, 
+    title: two_review_titles.sample, 
+    description: two_review_descriptions.sample, 
+    rating: 2,
+    created_at: Time.at(rand * Time.now.to_i))
+  end
+
+10.times do
+  Review.create!(
+    user_id: User.all.ids.sample, 
+    screenplay_id: Screenplay.all.ids.sample, 
+    title: five_review_titles.sample, 
+    description: four_review_descriptions.sample, 
+    rating: 5,
+    created_at: Time.at(rand * Time.now.to_i))
+  end
+
+200.times do
   Like.create!(review_id: Review.all.ids.sample, user_id: User.all.ids.sample)
 end
 

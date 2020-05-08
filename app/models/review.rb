@@ -31,8 +31,10 @@ class Review < ApplicationRecord
       response = Net::HTTP.get_response(uri)
       body = response.body
       gif = JSON.parse(body)
-      link = gif["data"]["images"]["original"]["webp"]
-      p link
+      if !gif["data"].empty?
+        link = gif["data"]["images"]["original"]["webp"]
+        p link
+      end
     end
 
     def search_term

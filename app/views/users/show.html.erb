@@ -69,18 +69,13 @@
         <% end %>
     </div>
 <% else %>
-
+    <% if current_user == @user %>
+        <div class="ui horizontal divider">
+            <h1 style="color: white">Write a Review</h1>
+        </div>
+        <%= render partial: "form_review", locals: { review: @review } %>
+    <% end %>
 <% end %>
 
-<% if current_user == @user %>
-<div class="ui horizontal divider">
-  <h1 style="color: white">Write a Review</h1>
-</div>
-<%= render partial: "form_review", locals: { review: @review } %>
 
-  <div class="description">
-    You haven't added any reviews yet. <%= link_to "Create a review", new_review_path%>
-  </div>
-
-<% end %>
 

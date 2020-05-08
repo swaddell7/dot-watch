@@ -5,7 +5,7 @@
 <% if @user.reviews.length > 0 %>
   <div class="ui centered center link cards">
     <% @user.reviews.each do |review| %>
-      <a class="ui card custom_card general_button_red_h" href="<%= review_path(review) %>">
+      <a class="ui card custom_card" href="<%= review_path(review) %>">
         <div class="ui image">
           <%= image_tag(review.screenplay.picture_url) %>
         </div>
@@ -45,9 +45,17 @@
   <div class="ui horizontal divider">
       <h1 style="color: white">Most Popular Review</h1>
   </div>
-  <div class="ui card centered custom_card">
+<% end %>
+<br>
+<br>
+<br>
+<br>
+<% if @popular_review %>
+<div class="ui centered grid">
+  <div class="ui cenetered center link cards">
+    <a class="card centered custom_card" href="<%= review_path(@popular_review) %>">
       <div class="center content">
-        <div class="header"><%= link_to @popular_review.short_title..., @popular_review %></div>
+        <div class="header"><p><%= @popular_review.short_title... %></p></div>
         <div class="meta"><p><%= @popular_review.get_screenplay %></p></div>
         <div class="meta"><p><%= @popular_review.created_at_to_date %></p></div>
         <div class="description">
@@ -55,34 +63,40 @@
         </div>
       </div>
       <div class="extra content">
+        <div class="ui left floated">
         <i class="thumbs up outline icon"></i>
         <p><%= @popular_review.likes.count %></p>
+        </div>
         <div class="ui right floated content">
           <% @popular_review.rating.to_i.times do %>
           <i class="star icon"></i>
         <% end %>
         </div>
       </div>
-    </div>
+    </a>
+  </div>
+</div>
 <% end %>
-
+<br>
+<br>
+<br>
 <div class="ui horizontal divider">
   <h1 style="color: white">Top-rated Films / TV shows today</h1>
 </div>
 <div class="ui centered center link cards">
   <% @top_three.each do |screenplay, av_rating| %>
-    <div class="card custom_card">
+    <a class="card custom_card" href="<%= screenplay_path(screenplay) %>%">
       <div class="ui image">
-        <%= link_to image_tag(screenplay.picture_url), screenplay %>
+        <%= image_tag(screenplay.picture_url) %>
       </div>
       <div class="content">
         <div class="header">
-          <%= link_to screenplay.title, screenplay %>
+          <p><%= screenplay.title %></p>
         </div>
       </div>
       <div class="extra content">
         <p>Average Rating: <%= av_rating %></p>
       </div>
-    </div>
+    </a>
   <% end %>
 </div>

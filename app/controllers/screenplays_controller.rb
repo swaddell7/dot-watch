@@ -8,7 +8,7 @@ class ScreenplaysController < ApplicationController
   def filter
     @genre = params[:screenplay][:genre_ids]
     @screenplays = Screenplay.filter(@genre)
-
+    flash[:filter_message] = Screenplay.filter_message(@genre)
     render :index
   end
 

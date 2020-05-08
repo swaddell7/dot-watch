@@ -42,6 +42,15 @@ class Screenplay < ApplicationRecord
         screenplays
     end
 
+    def self.filter_message(genre)
+      if genre.to_i == 0
+        nil
+      elsif
+        display_id = Genre.find(genre.to_i)
+        display_id.name
+      end 
+    end 
+
     def get_genre(screenplay)
       gid = ScreenplayGenre.find_by(screenplay_id: screenplay.id).genre_id
       Genre.find(gid).name

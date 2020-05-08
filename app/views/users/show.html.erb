@@ -1,4 +1,6 @@
-<div class="ui centered link card custom_card">
+<br>
+
+<div class="ui grid centered card custom_card">
     <div class="content">
         <div class="center header">
             <p><%= @user.name %>'s Profile</p>
@@ -11,7 +13,8 @@
                 <h4><%= @user.age %> years old</h4><br>
             <% end %>
             <% if @user.location %>
-            <p><%= @user.location %><i class="<%= @user.location.downcase %> flag"></i></p><br><br>
+            <p><%= @user.location %></p><br>
+            <p><i class="<%= @user.location.downcase %> flag"></i></p><br><br>
             <% end %>
             <p><%= @user.bio %></p>
         </div>
@@ -32,6 +35,7 @@
         </div>
     <% end %>
 </div>
+
 <br>
 <br>
 <br>

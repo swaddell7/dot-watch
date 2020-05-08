@@ -253,3 +253,7 @@ option {
     color: #fff !important;
     text-transform: uppercase !important;
 }
+
+.delete_button a {
+  color: #fff !important;
+}

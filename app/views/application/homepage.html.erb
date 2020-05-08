@@ -1,5 +1,3 @@
-<h1 class="center">Welcome back @<%= @user.username %></h1>
-
 <h2 class="center">Your reviews:</h2>
 
 <% if @user.reviews.length > 0 %>
@@ -33,20 +31,25 @@
 
 <% if @popular_review %>
   <h2 class="center">Your most popular review:</h2>
-  <div class="ui centered center link card custom_card">
-    <div class="content">
-      <div class="header">
-        <%= link_to @popular_review.title, @popular_review %>
+  <div class="ui card centered custom_card">
+      <div class="center content">
+        <div class="header"><%= link_to @popular_review.short_title..., @popular_review %></div>
+        <div class="meta"><p><%= @popular_review.get_screenplay %></p></div>
+        <div class="meta"><p><%= @popular_review.created_at_to_date %></p></div>
+        <div class="description">
+         <p><%= @popular_review.short_desc ... %></p>
+        </div>
       </div>
-      <div class="description">
-        <%= link_to "Film / TV Show: #{@popular_review.screenplay.title}", screenplay_path(@popular_review.screenplay) %>
+      <div class="extra content">
+        <i class="thumbs up outline icon"></i>
+        <p><%= @popular_review.likes.count %></p>
+        <div class="ui right floated content">
+          <% @popular_review.rating.to_i.times do %>
+          <i class="star icon"></i>
+        <% end %>
+        </div>
       </div>
     </div>
-    <div class="extra content">
-      <i class="hand peace icon"></i>
-      <p style="display: inline;">Likes: <%= @popular_review.likes.count %></p>
-    </div>
-  </div>
 <% end %>
 
 <h2 class="center">Top-rated Films / TV shows today:</h2>

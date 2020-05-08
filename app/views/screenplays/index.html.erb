@@ -1,6 +1,6 @@
 <br>
-<div class="ui centered grid">
-  <h1 class="centered">Films / TV Shows</h1>
+<div class="ui horizontal divider">
+  <h2 style="color: white">All Films / TV Shows</h2>
 </div>
 <br>
 <br>
@@ -34,13 +34,13 @@
 <br>
 <div class="ui centered center link cards">
   <% @screenplays.each do |screenplay| %>
-    <div class="card custom_card general_button_red_h">
+    <a class="card custom_card" href="<%= screenplay_path(screenplay)%>%">
       <div class="ui image div_size_screenplay_index centered">
-        <%= link_to image_tag(screenplay.picture_url), screenplay, :class => "screenplay_index_img_size" %>
+        <%= image_tag(screenplay.picture_url) %>
       </div>
       <div class="content">
         <div class="header">
-          <%= link_to screenplay.title, screenplay %>
+          <%= screenplay.title %>
           <br>
           <br>
             <h4 class="ui horizontal divider header">
@@ -74,7 +74,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </a>
   <% end %>
 </div>
 

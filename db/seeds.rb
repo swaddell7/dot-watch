@@ -18,7 +18,7 @@ genres.each do |genre|
   Genre.create(name: genre)
 end
 
-10.times do
+15.times do
   User.create!(name: Faker::Name.name, username: Faker::Name.name, password: "password", password_confirmation: "password", bio: Faker::Quote.yoda, age: rand(99))
 end
 
@@ -56,17 +56,71 @@ Screenplay.create!(category: "Film", picture_url: "https://www.gstatic.com/tv/th
 Screenplay.create!(category: "Film", picture_url: "https://www.gstatic.com/tv/thumb/v22vodart/12732076/p12732076_v_v8_aa.jpg", title: "Hush", description: "A deaf writer who retreated into the woods to live a solitary life must fight for her life in silence when a masked killer appears in her window.", runtime: 87)
 Screenplay.create!(category: "Film", picture_url: "https://www.gstatic.com/tv/thumb/v22vodart/10980706/p10980706_v_v8_ab.jpg", title: "The Martian", description: "When astronauts blast off from the planet Mars, they leave behind Mark Watney (Matt Damon), presumed dead after a fierce storm. With only a meager amount of supplies, the stranded visitor must utilize his wits and spirit to find a way to survive on the hostile planet. Meanwhile, back on Earth, members of NASA and a team of international scientists work tirelessly to bring him home, while his crew mates hatch their own plan for a daring rescue mission.", runtime: 151)
 
-20.times do
-  Review.create!(user_id: User.all.ids.sample, screenplay_id: Screenplay.all.ids.sample, title: Faker::Hipster.sentence, description: Faker::Hipster.paragraph, rating: rand(6))
+five_review_titles = ["Wow, this is truly incredible!", "Pure perfection", "Oh HELLO! Good times are a comin'", "DOPE MAN, DOPE!", "Something really special"]
+four_review_titles = ["Definitely well worth watching", "Really nice", "HOLLER! Beatiful characters alert!", "I loved this", "Really great watch"]
+three_review_titles = ["Some flaws, but overall decent", "It passes the COVID time fine", "I quite enjoyed this", "It's OK", "Meh, not bad"]
+two_review_titles = ["Watch if you have nothing better", "Scraping the barrel", "Characters are dull", "I fell asleep", "My nan acts better"]
+one_review_titles = ["Don't waste your time", "Paint drying was better", "Would rather be sick in a ditch", "Talent? This is talent?", "JUST NOPE!"]
+
+five_review_descriptions = ["Sometimes, you come across something that just makes you say WOW. This was one of those times.", "Pure perfection from start to finish. The camera angles, the plot, the characters, all of it was beautiful.", "Good times indeed yall. I would heartily recommend you watch this, YOU WILL NOT REGRET IT!", "Just DOPE. Like, really really good. Nice features, interesting plot-twists, everything you need really.", "Something really special. Perfect for my birthday surprise night in. I will be rewatching again and again!"]
+four_review_descriptions = ["Even with its subdued tone, this is hugely engaging, gently stirring quirky humour into the story and characters.", "Tells the story simply, focussing on the details of human existence and reaching a very good ending", "I thought this was great. It was a bit long for me, but the story was incredible.", "Really great stuff. Pacy, zippy and great development and introspection", "Just what I wanted to watch on my wedding anniversary. Hubs loved it too!"]
+three_review_descriptions = ["This was a fine watch. But just that. Fine. Not great, not bad. Just fine.", "There was a lot to like about this, but there was also a lot to dislike, so I'm going in the middle here.", "In fairness, I haven't even watched this yet LOL. I just wanted to get my critic status up a bit, so here we are. It's a 3 from me.", "It's OK. The characters are OK, the plot is OK, my life is OK. Who can complain?", "Hey, it could be a lot worse. Stick it on, have some tacos, maybe watch some minor league baseball afterwards. It's cool."]
+two_review_descriptions = ["You've really got to love this type of thing to watch this. Not the best in its genre.", "Barrel officially scraped. The cream of the crop has all gone to Hollywood, so we're stuck here with these lame actors. LAME!!!", "Characters are dull, plot is laborious and it's not great. But it's not the worst thing out there, that's Breaking Bad.", "I fell asleep because it was so bad. The main actors are nice looking though, so I've given an extra star for that.", "I met an alien whilst watching this. He'd just come to earth from the planet Zerg, over 1,000 light years away. And we watched this, and he decided to go back. It was that bad. It was sad."]
+one_review_descriptions = ["Urgh. Absolutely terrible. I only made it through about 5 minutes and then head to turn it off. Utter shite.", "After a while I stuck my head in a blender, which turned out to be less bad for my brain than watching this utter nonsense.", "I screamed constantly as I watched this. My neighbour came out to see what was the matter, took one look at the screen and was violently sick.", "I can't comprehend why somebody would waste their life putting this together. It's like, DUDE COME ON", "I didn't even watch this. But my neighbour Nance said it was terrible, and I always listen to what Nance says."]
+
+10.times do
+Review.create!(
+  user_id: User.all.ids.sample, 
+  screenplay_id: Screenplay.all.ids.sample, 
+  title: five_review_titles.sample, 
+  description: five_review_descriptions.sample, 
+  rating: 5,
+  created_at: Time.at(rand * Time.now.to_i))
 end
 
-20.times do
+10.times do
+  Review.create!(
+    user_id: User.all.ids.sample, 
+    screenplay_id: Screenplay.all.ids.sample, 
+    title: four_review_titles.sample, 
+    description: four_review_descriptions.sample, 
+    rating: 4,
+    created_at: Time.at(rand * Time.now.to_i))
+  end
+
+10.times do
+  Review.create!(
+    user_id: User.all.ids.sample, 
+    screenplay_id: Screenplay.all.ids.sample, 
+    title: three_review_titles.sample, 
+    description: three_review_descriptions.sample, 
+    rating: 3,
+    created_at: Time.at(rand * Time.now.to_i))
+  end
+
+10.times do
+  Review.create!(
+    user_id: User.all.ids.sample, 
+    screenplay_id: Screenplay.all.ids.sample, 
+    title: two_review_titles.sample, 
+    description: two_review_descriptions.sample, 
+    rating: 2,
+    created_at: Time.at(rand * Time.now.to_i))
+  end
+
+10.times do
+  Review.create!(
+    user_id: User.all.ids.sample, 
+    screenplay_id: Screenplay.all.ids.sample, 
+    title: five_review_titles.sample, 
+    description: four_review_descriptions.sample, 
+    rating: 5,
+    created_at: Time.at(rand * Time.now.to_i))
+  end
+
+200.times do
   Like.create!(review_id: Review.all.ids.sample, user_id: User.all.ids.sample)
 end
-
-# Screenplay.all.each do |screen|
-#   ScreenplayGenre.create!(screenplay_id: screen.id, genre_id: Genre.all.ids.sample)
-# end
 
 ScreenplayGenre.create!(screenplay_id: Screenplay.find_by(title: "The Shawshank Redemption").id, genre_id: Genre.find_by(name: "Drama").id)
 ScreenplayGenre.create!(screenplay_id: Screenplay.find_by(title: "Tiger King").id, genre_id: Genre.find_by(name: "Reality").id)

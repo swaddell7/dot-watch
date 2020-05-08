@@ -167,7 +167,12 @@ option {
 
 .custom_card {
     background-color: #222222 !important;
-    box-shadow: none !important;
+    box-shadow: none !important; 
+}
+
+.custom_card:hover {
+  border: 1px solid #e30914 !important;
+  transform: scale(1.2, 1.2);
 }
 
 .custom_card a, i {
@@ -217,7 +222,6 @@ option {
 }
 
 .general_button_red_h:hover {
-  margin: 0px !important;
   border: 1px solid #e30914 !important;
   cursor: pointer;
 }
@@ -247,4 +251,8 @@ option {
     background-color: #e30914 !important;
     color: #fff !important;
     text-transform: uppercase !important;
+}
+
+.delete_button a {
+  color: #fff !important;
 }

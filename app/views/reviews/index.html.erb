@@ -1,13 +1,17 @@
-<h2 class="center">All Reviews</h2>
-
+<br>
+<div class="ui horizontal divider">
+  <h2 style="color: white">All Reviews</h2>
+</div>
+<br>
+<br>
 <div class="ui centered link cards">
   <% @reviews.each do |review| %>
-    <div class="ui card custom_card general_button_red_h">
+    <a class="card custom_card" href="<%= review_path(review) %>">
       <div class="content">
-        <div class="header"><%= link_to review.short_title..., review_path(review) %></div>
-        <div class="meta"><p><%= review.get_screenplay %></p></div>
-        <div class="meta"><p><%= review.created_at_to_date %></p></div>
-        <div class="description">
+        <div class="center header"><p><%= review.short_title%></p></div>
+        <div class="center meta"><p><%= review.get_screenplay %></p></div>
+        <div class="center meta"><p><%= review.created_at_to_date %></p></div>
+        <div class="center description">
          <p><%= review.short_desc %></p>
         </div>
       </div>
@@ -20,6 +24,6 @@
         <% end %>
         </div>
       </div>
-    </div>
+    </a>
   <% end %>
 </div>

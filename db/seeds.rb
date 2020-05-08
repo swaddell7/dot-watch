@@ -19,7 +19,7 @@ genres.each do |genre|
 end
 
 10.times do
-  User.create!(name: Faker::Name.name, username: "username", bio: Faker::Quote.yoda, age: rand(99))
+  User.create!(name: Faker::Name.name, username: Faker::Name.name, password: "password", password_confirmation: "password", bio: Faker::Quote.yoda, age: rand(99))
 end
 
 Screenplay.create!(category: "Film", picture_url: "https://images-na.ssl-images-amazon.com/images/I/51zUbui%2BgbL._SY445_.jpg", title: "The Shawshank Redemption", description: "A man goes to prison", runtime: 142)
@@ -57,7 +57,7 @@ Screenplay.create!(category: "Film", picture_url: "https://www.gstatic.com/tv/th
 Screenplay.create!(category: "Film", picture_url: "https://www.gstatic.com/tv/thumb/v22vodart/10980706/p10980706_v_v8_ab.jpg", title: "The Martian", description: "When astronauts blast off from the planet Mars, they leave behind Mark Watney (Matt Damon), presumed dead after a fierce storm. With only a meager amount of supplies, the stranded visitor must utilize his wits and spirit to find a way to survive on the hostile planet. Meanwhile, back on Earth, members of NASA and a team of international scientists work tirelessly to bring him home, while his crew mates hatch their own plan for a daring rescue mission.", runtime: 151)
 
 20.times do
-  Review.create!(user_id: User.all.ids.sample, screenplay_id: Screenplay.all.ids.sample, title: Faker::Quotes::Shakespeare.hamlet_quote, description: Faker::Quotes::Shakespeare.romeo_and_juliet_quote, rating: rand(6))
+  Review.create!(user_id: User.all.ids.sample, screenplay_id: Screenplay.all.ids.sample, title: Faker::Hipster.sentence, description: Faker::Hipster.paragraph, rating: rand(6))
 end
 
 20.times do

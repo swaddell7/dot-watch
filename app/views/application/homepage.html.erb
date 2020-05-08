@@ -5,16 +5,16 @@
 <% if @user.reviews.length > 0 %>
   <div class="ui centered center link cards">
     <% @user.reviews.each do |review| %>
-      <div class="ui card custom_card">
+      <a class="ui card custom_card general_button_red_h" href="<%= review_path(review) %>">
         <div class="ui image">
-          <%= link_to image_tag(review.screenplay.picture_url), review %>
+          <%= image_tag(review.screenplay.picture_url) %>
         </div>
         <div class="content">
           <div class="header">
-            <%= link_to review.title, review %>
+            <p><%= review.title %></p>
           </div>
           <div class="description">
-            <%= link_to review.screenplay.title, screenplay_path(review.screenplay) %>
+            <p><%= review.screenplay.title %></p>
           </div>
         </div>
         <div class="extra content">
@@ -28,14 +28,18 @@
             <% end %>
           </div>
         </div>
-      </div>
+      </a>
     <% end %>
   </div>
 <% else %>
-  <div class="description">
-    You haven't added any reviews yet. <%= link_to "Create a review", new_review_path%>
+<div class="ui centered grid"><br>
+  <div class="ui compact red message">
+    <div class="description">
+    You haven't added any reviews yet. <%= link_to "Create a review", new_review_path%><br>
   </div>
-<% end %>
+  </div>
+</div>
+<% end %><br>
 
 <% if @popular_review %>
   <div class="ui horizontal divider">

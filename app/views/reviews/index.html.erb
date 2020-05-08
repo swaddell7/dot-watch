@@ -15,27 +15,9 @@
         <i class="thumbs up outline icon"></i>
         <p><%= review.likes.count %></p>
         <div class="ui right floated content">
-          <% if review.rating == 1 %>
-            <i class="star icon"></i>
-          <% elsif review.rating == 2 %>
-            <i class="star icon"></i>
-            <i class="star icon"></i>
-          <% elsif review.rating == 3 %>
-            <i class="star icon"></i>
-            <i class="star icon"></i>
-            <i class="star icon"></i>
-         <% elsif review.rating == 4 %>
-            <i class="star icon"></i>
-            <i class="star icon"></i>
-            <i class="star icon"></i>
-            <i class="star icon"></i>
-          <% elsif review.rating == 5 %>
-            <i class="star icon"></i>
-            <i class="star icon"></i>
-            <i class="star icon"></i>
-            <i class="star icon"></i>
-            <i class="star icon"></i>
-          <% end %>
+          <% review.rating.to_i.times do %>
+          <i class="star icon"></i>
+        <% end %>
         </div>
       </div>
     </div>

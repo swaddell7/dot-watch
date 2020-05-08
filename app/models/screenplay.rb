@@ -67,4 +67,12 @@ class Screenplay < ApplicationRecord
         "Episodes: #{self.num_episodes}"
       end 
     end 
+
+    def short
+      if self.description
+        short_desc = self.description.split(' ')
+        short_desc.take(7).join(' ') + "..."
+      end 
+    end
+    
 end

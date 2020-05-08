@@ -230,3 +230,21 @@ option {
 .filter_by_coloring p {
   font-size: 18px; 
 }
+
+.review_show_color {
+    background-color: #222222 !important;
+    height: 100% !important;
+    width: 800px !important;
+    align-self: center;
+}
+
+.delete_button {
+    height: 35px;
+    width: 200px;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+    border-radius: 100px !important;
+    background-color: #e30914 !important;
+    color: #fff !important;
+    text-transform: uppercase !important;
+}

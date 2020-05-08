@@ -5,9 +5,9 @@
   <br>
 <% end %>
 
-<div class="ui centered grid">
-<div class="six wide column">
-<div class="ui centered fluid card">
+
+<div class="ui centered grid" style="margin-top: 80px">
+<div class="ui centered card review_show_color custom_card">
   <div class="content">
     <div class="center header">
       <h1><%= @review.title %></h1>
@@ -16,10 +16,10 @@
       <p>Review by: <%= link_to @review.user.name, user_path(@review.user) %></p>
     </div>
     <div class="center meta">
-      <p>Film / TV Show: <%= link_to @review.screenplay.title, screenplay_path(@review.screenplay) %></p><br>
+      <p>Film / TV Show: <%= link_to @review.screenplay.title, screenplay_path(@review.screenplay) %></p><br><br>
     </div>
     <div class="center description">
-      <p><%= @review.description %></p><br>
+      <p><%= @review.description %></p><br><br>
     </div>
     <div class="center description">
       <% if @review.rating == 1 %>
@@ -44,7 +44,7 @@
         <i class="star icon"></i>
       <% end %>
     </div>
-    <div class="ui labeled button center" tabindex="0">
+    <div class="ui labeled button left floated" tabindex="0">
       <%= button_to "Like", like_path(@review), method: :put, class: "ui red button center" %>
         <a class="ui basic red left pointing label center">
           <%= @review.likes.count %>
@@ -56,25 +56,15 @@
       <% end %>
     </div>
   </div>
+  <% if current_user == @review.user %>
         <div class="ui bottom attached red button">
             <i class="add icon"></i>
             <%= link_to "Edit Review", edit_review_path(@review) %>
         </div>
+      <% end %>
     </div>
   </div>
-</div>
 
-
-
-
-
-
-
-
-
-<% if current_user == @review.user %>
-  <%= link_to "Edit Review", edit_review_path(@review) %>
-<% end %>
 <br>
 <% if current_user == @review.user %>
   <%= link_to "Delete Review", delete_path(@review) %>

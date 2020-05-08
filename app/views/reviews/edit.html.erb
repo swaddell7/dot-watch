@@ -1,3 +1,10 @@
 <p class="center header">Edit review</p>
 
+
 <%= render partial: "form", locals: { review: @review } %>
+
+<div class="ui centered grid">
+  <% if current_user == @review.user %>
+    <%= button_to "Delete Review", delete_path(@review), class: "ui button delete_button"%>
+  <% end %>
+</div>

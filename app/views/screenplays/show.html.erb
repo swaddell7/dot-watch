@@ -3,7 +3,7 @@
 
 <div class="ui centered center link cards">
     <div class="card custom_card">
-      <div class="ui image div_size_screenplay_index centered">
+      <div class="ui image centered">
         <%= link_to image_tag(@screenplay.picture_url), @screenplay, :class => "screenplay_index_img_size" %>
       </div>
       <div class="content">
@@ -19,9 +19,9 @@
           <h4 class="ui horizontal divider header">
               Information
             </h4>
-            <p class="screenplay_index_desc_font">Length: <%= @screenplay.runtime%> minutes</p>
-            <p class="screenplay_index_desc_font"><%= @screenplay.seasons%></p>
-            <p class="screenplay_index_desc_font"><%= @screenplay.episodes%></p>
+            <p class="screenplay_index_desc_font">Length: <%= @screenplay.runtime.to_i%> minutes</p><br>
+            <p class="screenplay_index_desc_font"><%= @screenplay.seasons%></p><br>
+            <p class="screenplay_index_desc_font"><%= @screenplay.episodes%></p><br>
         </div>
       </div>
        <h4 class="ui horizontal divider white">
@@ -47,35 +47,36 @@
 <br>
 <br>
 
+<% if !@screenplay.reviews.empty? %>
   <div class="ui horizontal divider">
     <h1 style="color: white"><%=@screenplay.title %> Reviews</h1>
   </div>
-<br>
-<br>
-
-<div class="ui centered link cards">
-  <% @screenplay.reviews.each do |review| %>
-    <a class="card custom_card" href="<%= review_path(review) %>">
-      <div class="content">
-        <div class="center header"><p><%= review.short_title... %></p></div>
-        <div class="center meta"><p><%= review.get_screenplay %></p></div>
-        <div class="center meta"><p><%= review.created_at_to_date %></p></div>
-        <div class="center description">
-         <p><%= review.short_desc %></p>
+  <br>
+  <br>
+  <div class="ui centered link cards">
+    <% @screenplay.reviews.each do |review| %>
+      <a class="card custom_card" href="<%= review_path(review) %>">
+        <div class="content">
+          <div class="center header"><p><%= review.short_title... %></p></div>
+          <div class="center meta"><p><%= review.get_screenplay %></p></div>
+          <div class="center meta"><p><%= review.created_at_to_date %></p></div>
+          <div class="center description">
+          <p><%= review.short_desc %></p>
+          </div>
         </div>
-      </div>
-      <div class="extra content">
-        <i class="thumbs up outline icon"></i>
-        <p><%= review.likes.count %></p>
-        <div class="ui right floated content">
-          <% review.rating.to_i.times do %>
-          <i class="star icon"></i>
-        <% end %>
+        <div class="extra content">
+          <i class="thumbs up outline icon"></i>
+          <p><%= review.likes.count %></p>
+          <div class="ui right floated content">
+            <% review.rating.to_i.times do %>
+            <i class="star icon star_icon"></i>
+          <% end %>
+          </div>
         </div>
-      </div>
-    </a>
-  <% end %>
-</div>
+      </a>
+    <% end %>
+  </div>
+<% end %>
 
 
 <div class="ui horizontal divider">

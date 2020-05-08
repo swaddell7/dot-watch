@@ -19,7 +19,7 @@ genres.each do |genre|
 end
 
 15.times do
-  User.create!(name: Faker::Name.name, username: Faker::Name.name, password: "password", password_confirmation: "password", bio: Faker::Quote.yoda, age: rand(99))
+  User.create!(name: Faker::Name.name, username: Faker::Name.name, password: "password", password_confirmation: "password", bio: Faker::Quote.yoda, age: rand(99), location: Faker::Address.country)
 end
 
 Screenplay.create!(category: "Film", picture_url: "https://images-na.ssl-images-amazon.com/images/I/51zUbui%2BgbL._SY445_.jpg", title: "The Shawshank Redemption", description: "A man goes to prison", runtime: 142)

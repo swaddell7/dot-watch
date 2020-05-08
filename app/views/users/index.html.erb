@@ -12,8 +12,13 @@
                     <p><%= "#{user.name} | @#{user.username}" %></p>
                 </div>
                 <div class="center description">
-                    <p><%= "#{user.shorter_bio}..." %></p>
+                    <p><%= "#{user.shorter_bio}..." %></p><br><br>
+                    <% if user.location %>
+                        <p><%= user.location %></p><br>
+                        <p><i class="<%= user.location.downcase %> flag"></i></p>
+                    <% end %>
                 </div>
+                
             </div>
             <div class="extra content">
                 <i class="newspaper icon"></i>

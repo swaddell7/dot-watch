@@ -10,7 +10,9 @@
             <% if @user.age %>
                 <h4><%= @user.age %> years old</h4><br>
             <% end %>
-            <h4><%= @user.location %></h4><br>
+            <% if @user.location %>
+            <p><%= @user.location %><i class="<%= @user.location.downcase %> flag"></i></p><br><br>
+            <% end %>
             <p><%= @user.bio %></p>
         </div>
     </div>

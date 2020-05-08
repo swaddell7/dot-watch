@@ -19,7 +19,7 @@ genres.each do |genre|
 end
 
 10.times do
-  User.create!(name: Faker::Name.name, username: "username", bio: Faker::Quote.yoda, age: rand(99))
+  User.create!(name: Faker::Name.name, username: Faker::Name.name, password: "password", password_confirmation: "password", bio: Faker::Quote.yoda, age: rand(99))
 end
 
 Screenplay.create!(category: "Film", picture_url: "https://images-na.ssl-images-amazon.com/images/I/51zUbui%2BgbL._SY445_.jpg", title: "The Shawshank Redemption", description: "A man goes to prison", runtime: 142)
@@ -30,7 +30,7 @@ Screenplay.create!(category: "Film", picture_url: "https://m.media-amazon.com/im
 Screenplay.create!(category: "Film", picture_url: "https://www.bet.com/celebrities/photos/2012/11/the-cast-of-8-mile-where-are-they-now/_jcr_content/mainCol/imagegallerycontainer/galleryimage_0.custom750x0.dimg/__1532544698580__1532544679827/072518-celebrities-eminem-8-mile-shot.jpg", title: "8 Mile", description: "8 Mile is a 2002 American hip-hop musical film written by Scott Silver, directed by Curtis Hanson, and starring Eminem, Mekhi Phifer, Brittany Murphy, Michael Shannon, Anthony Mackie, and Kim Basinger", runtime: 118)
 Screenplay.create!(category: "TV Show", picture_url: "https://static.next-episode.net/tv-shows-images/huge/burn-notice.jpg", title: "Burn Notice", description: "A spy recently disavowed by the U.S. government uses his special ops training to help others in trouble", num_seasons: 7, num_episodes: 111, runtime: 44)
 Screenplay.create!(category: "Film", picture_url: "https://reporter.rit.edu:8443/sites/pubDir/slideShow/02-20/1521-2464-158882019.png", title: "The Joker", description: "Joker is a 2019 American psychological thriller film directed and produced by Todd Phillips, who co-wrote the screenplay with Scott Silver. The film, based on DC Comics characters, stars Joaquin Phoenix as the Joker and provides a possible origin story for the character.", runtime: 122)
-Screenplay.create!(category: "TV Show", picture_url: "https://image.pbs.org/contentchannels/2969/jG4GHTFNaKemFyVHmZFP3Q.jpg", title: "The Great British Baking Show", description: "A talented batch of amateur bakers face off in a 10-week competition, whipping up their best dishes in the hopes of being named the UK's best.", num_seasons: 7, num_episodes: 70, runtime 57)
+Screenplay.create!(category: "TV Show", picture_url: "https://image.pbs.org/contentchannels/2969/jG4GHTFNaKemFyVHmZFP3Q.jpg", title: "The Great British Baking Show", description: "A talented batch of amateur bakers face off in a 10-week competition, whipping up their best dishes in the hopes of being named the UK's best.", num_seasons: 7, num_episodes: 70, runtime: 57)
 Screenplay.create!(category: "Film", picture_url: "https://lh3.googleusercontent.com/auIs5tjWlLYaFPGClZOJ7m5YVbnX6uBvz0X02r8TkwFKdzE53ww2MqWSS9gU0YNqoYwvpg", title: "The Dark Knight", description: "With the help of allies Lt. Jim Gordon (Gary Oldman) and DA Harvey Dent (Aaron Eckhart), Batman (Christian Bale) has been able to keep a tight lid on crime in Gotham City. But when a vile young criminal calling himself the Joker (Heath Ledger) suddenly throws the town into chaos, the caped Crusader begins to tread a fine line between heroism and vigilantism.", runtime: 152)
 Screenplay.create!(category: "Film", picture_url: "https://i.insider.com/57d6c8e8dd0895cc308b491a?width=1100&format=jpeg&auto=webp", title: "Mulan", description: "Fearful that her ailing father will be drafted into the Chinese military, Mulan (Ming-Na Wen) takes his spot -- though, as a girl living under a patriarchal regime, she is technically unqualified to serve. She cleverly impersonates a man and goes off to train with fellow recruits. Accompanied by her dragon, Mushu (Eddie Murphy), she uses her smarts to help ward off a Hun invasion, falling in love with a dashing captain along the way.", runtime: 88)
 Screenplay.create!(category: "Film", picture_url: "https://3yoyr53fr4c8sig6z3tnt3tj-wpengine.netdna-ssl.com/wp-content/uploads/2018/06/GreatestShowman-1.jpg", title: "The Greatest Showman", description: "Inspired by the imagination of P.T. Barnum, The Greatest Showman is an original musical that celebrates the birth of show business & tells of a visionary who rose from nothing to create a spectacle that became a worldwide sensation.", runtime: 106)
@@ -55,7 +55,7 @@ Screenplay.create!(category: "TV Show", picture_url: "https://www.gstatic.com/tv
 
 
 20.times do
-  Review.create!(user_id: User.all.ids.sample, screenplay_id: Screenplay.all.ids.sample, title: Faker::Quotes::Shakespeare.hamlet_quote, description: Faker::Quotes::Shakespeare.romeo_and_juliet_quote, rating: rand(6))
+  Review.create!(user_id: User.all.ids.sample, screenplay_id: Screenplay.all.ids.sample, title: Faker::Hipster.sentence, description: Faker::Hipster.paragraph, rating: rand(6))
 end
 
 20.times do

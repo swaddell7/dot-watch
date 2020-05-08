@@ -215,3 +215,18 @@ option {
 .new_post_btn:focus {
     outline: 0;
 }
+
+.general_button_red_h:hover {
+  margin: 0px !important;
+  border: 1px solid #e30914 !important;
+  cursor: pointer;
+}
+
+.filter_by_coloring {
+  border: 2px solid #e30914 !important;
+  width: 350px;
+}
+
+.filter_by_coloring p {
+  font-size: 18px; 
+}

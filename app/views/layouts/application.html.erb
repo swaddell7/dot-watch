@@ -19,12 +19,12 @@
         <% if logged_in? %>
           <div class="ui inverted menu">
             <%= link_to "DotWatch", root_path, class: "active_item item" %>
-            <%= link_to "Films / TV Shows", screenplays_path, class: "item" %>
-            <%= link_to "Reviews", reviews_path, class: "item" %>
-            <%= link_to "Critics", users_path, class: "item" %>
+            <%= link_to "Films / TV Shows", screenplays_path, class: "item general_button_red_h" %>
+            <%= link_to "Reviews", reviews_path, class: "item general_button_red_h" %>
+            <%= link_to "Critics", users_path, class: "item general_button_red_h" %>
             <div class="right menu">
-              <%= link_to "My Profile", user_path(session[:user_id]), class: "item" %>
-              <%= link_to "Logout", logout_path, method: :delete, class: "item" %>
+              <%= link_to "My Profile", user_path(session[:user_id]), class: "item general_button_red_h" %>
+              <%= link_to "Logout", logout_path, method: :delete, class: "item general_button_red_h" %>
             </div>
           </div>  
         <% end %>

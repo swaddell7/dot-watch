@@ -1,24 +1,30 @@
-# README
+# DotWatch
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Being stuck trying to decide what to watch is just annoying. Often times you spend more time looking for a movie or show than actually watching one!
 
-Things you may want to cover:
+* DotWatch makes it easy to find a good movie or show based on community ratings and reviews.
 
-* Ruby version
+* DotWatch was a group project during Mod 2 of Flatiron School! The other members of the group are linked at the bottom of this ReadMe.
 
-* System dependencies
+# Features I Worked On
 
-* Configuration
+* Implementing a like feature that allows a user to like another user's review.
 
-* Database creation
+* Design of the content cards for films and shows, as well as user cards.
 
-* Database initialization
+* Conditional rendering of the option to edit or delete a review that you have written, without being able to edit or delete other users' content.
+DotWatch
 
-* How to run the test suite
+* Filter functionality of the films and shows based on their genres. 
 
-* Services (job queues, cache servers, search engines, etc.)
+# Technologies
 
-* Deployment instructions
+* Built with Ruby on Rails for the front-end as well as the back-end.
 
-* ...
+* Semantic UI was used to help with styling.
+
+* Utilized sessions to help with user experience.
+
+Video Walkthrough: https://youtu.be/PwfB-d8XJ3U
+
+Other Group Members: Joseph Auz | Sam Gorick | Isaac Medina

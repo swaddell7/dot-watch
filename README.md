@@ -25,6 +25,6 @@ DotWatch
 
 * Utilized sessions to help with user experience.
 
-Video Walkthrough: 
+Video Walkthrough: https://youtu.be/_0hLQohmqPg
 
 Other Group Members: [Joseph Auz](https://github.com/Auliz) | [Sam Gorick](https://github.com/samgorick) | [Isaac Medina](https://github.com/Isaacmeedinaa)
